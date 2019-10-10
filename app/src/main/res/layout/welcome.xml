@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroud"
+    android:padding="16dp"
+
+    tools:context=".Activity.Sach.Welcome">
+
+    <ImageView
+        android:padding="-16dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="19dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="16dp"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/backgroud" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="50">
+
+        <EditText
+            android:id="@+id/user"
+            android:hint="Nhập tài khoản email hoặc phone number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="22dp"
+        android:layout_height="wrap_content"
+        app:counterEnabled="true"
+        app:counterMaxLength="50">
+
+        <EditText
+            android:id="@+id/pass"
+            android:inputType="textPassword"
+            android:hint="Nhập mật khẩu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:textColor="@color/remember"
+            android:textSize="13dp"
+            android:layout_alignParentLeft="true"
+            android:text="Remember password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:onClick="LayLaiTaiKhoan"
+            android:textSize="13dp"
+            android:textColor="@color/createacc"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/login_quenmatkhau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:background="@drawable/botrondo"
+            android:onClick="login"
+            android:layout_alignParentLeft="true"
+            style="@style/btndo"
+            android:text="LoGin"
+            android:layout_width="160dp"
+            android:layout_height="33dp"/>
+
+        <Button
+            android:onClick="Login_to_FaceBook"
+            android:background="@drawable/botronxanh"
+            android:layout_alignParentRight="true"
+            style="@style/btnxanh"
+            android:text="login to FaceBook"
+            android:layout_width="160dp"
+            android:layout_height="33dp"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:background="#707070"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:text="or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <View
+            android:background="#707070"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+    <TextView
+        android:textColor="@color/denn"
+        android:layout_marginTop="20dp"
+        android:onClick="TaoTaiKhoan"
+        android:layout_gravity="center"
+        android:text="@string/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</LinearLayout>

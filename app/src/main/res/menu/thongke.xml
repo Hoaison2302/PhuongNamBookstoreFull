@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Quản lý người dùng" >
+        <menu>
+            <item android:title="Thông tin người dùng"/>
+            <item android:title="Lấy lại mật khẩu"/>
+        </menu>
+    </item>
+    <item android:title="Quản lý sách tồn kho" />
+    <item android:title="Quản lý hóa đơn" >
+        <menu>
+            <item android:title="Hóa đơn nhập"/>
+            <item android:title="Hóa đơn bán"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/thongke"
+        android:title="Thống kê doanh số" />
+    <item android:title="Sách bán chạy"/>
+    <item android:title="Thông tin" />
+    <item
+        android:id="@+id/dangxuat"
+        android:title="Đăng xuất" />
+    <item
+
+        app:showAsAction="always"
+        android:id="@+id/app_bar_search"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView" />
+
+</menu>

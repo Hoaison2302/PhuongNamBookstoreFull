@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Phuong Nam Bookstore</string>
+
+
+    <string name="login_quenmatkhau"><u>Lấy Lại Tài Khoản!</u></string>
+    <string name="create"><u>Create Account!</u></string>
+    <string name="pocup_sua">Sửa</string>
+    <string name="pocup_xoa">Xóa</string>
+    <string name="thongbaothanhcong">Đăng ký Thành Công!</string>
+</resources>

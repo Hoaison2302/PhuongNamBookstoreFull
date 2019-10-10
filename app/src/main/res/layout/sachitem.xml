@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="190dp"
+    android:layout_height="285dp"
+    android:layout_margin="16dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/imageView2"
+        android:layout_width="170dp"
+        android:layout_height="172dp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:id="@+id/tvten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="32dp"
+        android:text="TextView"
+        android:textSize="12dp" />
+
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:id="@+id/tvtacgia"
+        android:textSize="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+        android:text="TextView" />
+
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:id="@+id/tvgia"
+        android:textSize="14dp"
+
+        android:textColor="@color/gia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|bottom"
+
+        android:text="TextView" />
+
+    <TextView
+        android:layout_marginBottom="7dp"
+        android:layout_marginRight="34dp"
+        android:layout_gravity="right|bottom"
+        android:text="luot xem"
+        android:textSize="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvluotxem"/>
+    <ImageView
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="7dp"
+
+        android:src="@drawable/view"
+        android:layout_gravity="bottom|right"
+        android:id="@+id/tvview"
+        android:layout_width="8dp"
+        android:layout_height="8dp"/>
+    <ImageView
+        android:onClick="pocup"
+        android:layout_marginBottom="5dp"
+
+        android:layout_marginRight="0dp"
+        android:src="@drawable/luachon"
+        android:layout_gravity="bottom|right"
+        android:id="@+id/tvluachon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"/>
+</androidx.cardview.widget.CardView>

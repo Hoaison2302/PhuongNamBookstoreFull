@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7C8190</color>
+    <color name="colorPrimaryDark">#7C8190</color>
+    <color name="colorAccent">#7C8190</color>
+    <color name="backgroud">#DACFC3</color>
+    <color name="floatbt">#AE3E3E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gia">#B9062D</color>
+    <color name="luachon">#757575</color>
+    <color name="createacc">#020202</color>
+    <color name="remember">#707070</color>
+    <color name="den">#FFFFFF</color>
+    <color name="denn">#020202</color>
+    <color name="backgroud_floa">#AE3E3E</color>
+</resources>

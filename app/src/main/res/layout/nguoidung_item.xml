@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/cardnguoidung"
+    android:background="@color/backgroud"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/ivuser"
+        android:layout_width="67dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Tài khoản"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        app:layout_constraintStart_toEndOf="@+id/ivuser"
+        app:layout_constraintTop_toTopOf="@+id/ivuser" />
+
+    <ImageView
+        android:id="@+id/ivcustom"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:src="@drawable/custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivkechan" />
+
+    <ImageView
+        android:id="@+id/ivthungrac"
+        android:layout_width="17dp"
+        android:layout_height="20dp"
+        android:layout_gravity="right|bottom"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:src="@drawable/thungrac"
+        app:layout_constraintBottom_toBottomOf="@+id/ivcustom"
+        app:layout_constraintStart_toEndOf="@+id/ivcustom"
+        app:layout_constraintTop_toTopOf="@+id/ivcustom"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/ivkechan"
+        android:layout_width="319dp"
+        android:layout_height="2dp"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="22dp"
+        android:background="#673AB7"
+        android:src="@drawable/kechan"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/tvMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="0dp"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
