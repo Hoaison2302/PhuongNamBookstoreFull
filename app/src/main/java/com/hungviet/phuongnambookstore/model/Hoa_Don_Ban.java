@@ -1,54 +1,54 @@
 package com.hungviet.phuongnambookstore.model;
 
 public class Hoa_Don_Ban {
-    String theloai,tensach,ngaynhap,soluongban;
-    String giaban;
-
-    public Hoa_Don_Ban(String theloai, String tensach, String ngaynhap, String soluongban, String giaban) {
-        this.theloai = theloai;
-        this.tensach = tensach;
-        this.ngaynhap = ngaynhap;
-        this.soluongban = soluongban;
-        this.giaban = giaban;
-    }
+    public String theloai,tensach,ngayban,mahoadonban;
+    public int giaban,soluongban;
 
     public String getTheloai() {
         return theloai;
-    }
-
-    public String getTensach() {
-        return tensach;
-    }
-
-    public String getNgaynhap() {
-        return ngaynhap;
-    }
-
-    public String getSoluongban() {
-        return soluongban;
-    }
-
-    public String getGiaban() {
-        return giaban;
     }
 
     public void setTheloai(String theloai) {
         this.theloai = theloai;
     }
 
+    public String getTensach() {
+        return tensach;
+    }
+
     public void setTensach(String tensach) {
         this.tensach = tensach;
     }
 
-    public void setNgaynhap(String ngaynhap) {
-        this.ngaynhap = ngaynhap;
+    public String getNgayban() {
+        return ngayban;
     }
 
-    public void setSoluongban(String soluongban) {
-        this.soluongban = soluongban;
+    public void setNgayban(String ngayban) {
+        this.ngayban = ngayban;
     }
 
-    public void setGiaban(String giaban) {
+    public String getMahoadonban() {
+        return mahoadonban;
+    }
+
+    public void setMahoadonban(String mahoadonban) {
+        this.mahoadonban = mahoadonban;
+    }
+
+    public int getGiaban() {
+        return giaban;
+    }
+
+    public void setGiaban(int giaban) {
         this.giaban = giaban;
+    }
+
+    public int getSoluongban() {
+        return soluongban;
+    }
+
+    public void setSoluongban(int soluongban) {
+        this.soluongban = soluongban;
     }
 }

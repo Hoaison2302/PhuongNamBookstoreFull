@@ -12,6 +12,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/edttheloai"
             android:layout_height="wrap_content"
             android:hint="Thể Loại" />
 
@@ -21,6 +22,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/edttensach"
                 android:layout_height="wrap_content"
                 android:hint="Tên Sách" />
 
@@ -32,15 +34,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ngày"
-                        android:id="@+id/edtngay"
-                        android:inputType="date"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/edtngay"
+                            android:layout_height="wrap_content"
+                            android:hint="Ngày" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
                         android:layout_width="15dp"
@@ -64,6 +70,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/edtgia"
                         android:layout_height="wrap_content"
                         android:hint="Giá" />
 
@@ -73,8 +80,20 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
+                            android:id="@+id/edtsoluong"
                             android:layout_height="wrap_content"
                             android:hint="Số Lượng" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/edtmasach"
+                                android:hint="Mã Sách" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
@@ -82,22 +101,25 @@
 
         </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btncancel"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
 
-    <Button
-        android:layout_width="85dp"
-        android:layout_height="35dp"
+            android:layout_marginLeft="170dp"
+            android:text="Cancel" />
+        <Button
+            android:id="@+id/btnok"
+            android:text="Ok"
+            android:layout_width="65dp"
+            android:layout_height="35dp"/>
 
-        android:layout_marginLeft="170dp"
-        android:text="Cancel" />
-    <Button
-        android:text="Ok"
-        android:layout_width="65dp"
-        android:layout_height="35dp"/>
+    </LinearLayout>
 
-</LinearLayout>
+
 </LinearLayout>

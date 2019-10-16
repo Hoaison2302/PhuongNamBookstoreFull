@@ -21,7 +21,7 @@ import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.Thong_Tin_N
 import com.hungviet.phuongnambookstore.Activity.Top_Ban_Chay.Top_Ban_ChayActivity;
 import com.hungviet.phuongnambookstore.R;
 import com.hungviet.phuongnambookstore.model.BaseActivity;
-import com.hungviet.phuongnambookstore.model.Sach;
+import com.hungviet.phuongnambookstore.model.Sach.Sach;
 import com.hungviet.phuongnambookstore.Adapter.SachAdapter;
 
 import java.util.ArrayList;
@@ -34,6 +34,7 @@ public class HomeActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private ImageView imageView;
     private FloatingActionButton floatingActionButton;
+    private SachDao sachDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,10 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         recyclerView=findViewById(R.id.recycler);
         imageView=findViewById(R.id.tvluachon);
+        floatingActionButton=findViewById(R.id.floatingActionButton);
 
-
-
-
-
-
+        sachDao=new SachDao(this);
+        sachList=sachDao.getAll();
 
         Drawable drawable= getResources().getDrawable(R.drawable.pri);
 //...
@@ -54,39 +53,11 @@ public class HomeActivity extends BaseActivity {
         getSupportActionBar().setHomeAsUpIndicator(drawable);
 
 
-
-
-
-        floatingActionButton=findViewById(R.id.floatingActionButton);
-
-        sachList = new ArrayList<>();
-
-        sachList.add(new Sach(R.drawable.loisongtoigian,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.nghethuatdamphan,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.loisongtoigian,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.nghethuatdamphan,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-
-        sachList.add(new Sach(R.drawable.loisongtoigian,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.nghethuatdamphan,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.loisongtoigian,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-        sachList.add(new Sach(R.drawable.nghethuatdamphan,R.drawable.view,R.drawable.luachon,
-                "Nghệ Thuật Đàm Phán","Sasaki Fumio","890 $","36827"));
-
-
-
         sachAdapter = new SachAdapter(sachList,this);
+        sachAdapter.notifyDataSetChanged();
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(sachAdapter);
-
-
 
 
 

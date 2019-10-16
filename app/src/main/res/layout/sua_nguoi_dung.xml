@@ -18,6 +18,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/email_nguoidung"
                 android:layout_height="wrap_content"
                 android:hint="Email" />
 
@@ -36,6 +37,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+
+                        android:id="@+id/hoten_nguoidung"
                         android:layout_height="wrap_content"
                         android:hint="Họ tên" />
 
@@ -45,6 +48,8 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
+
+                            android:id="@+id/matkhau_nguoidung"
                             android:layout_height="wrap_content"
                             android:hint="Mật khẩu" />
                     </com.google.android.material.textfield.TextInputLayout>

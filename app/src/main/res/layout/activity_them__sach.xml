@@ -17,6 +17,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/btntacgiathem"
             android:layout_height="wrap_content"
             android:hint="Tác Giả" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -33,6 +34,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/btntensachthem"
             android:layout_height="wrap_content"
             android:hint="Tên Sách" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -47,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/btngiathem"
             android:layout_height="wrap_content"
             android:hint="Giá" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,13 +63,14 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/btnluotxemthem"
             android:layout_height="wrap_content"
             android:hint="Lượt Xem" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:onClick="openActivity"
-        android:id="@+id/button5"
+        android:id="@+id/btnthem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thêm"

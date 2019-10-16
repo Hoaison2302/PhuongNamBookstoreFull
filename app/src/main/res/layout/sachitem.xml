@@ -10,6 +10,8 @@
 
 
     <ImageView
+
+        android:src="@drawable/nghethuatdamphan"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="40dp"
         android:id="@+id/imageView2"
@@ -70,7 +72,6 @@
     <ImageView
         android:onClick="pocup"
         android:layout_marginBottom="5dp"
-
         android:layout_marginRight="0dp"
         android:src="@drawable/luachon"
         android:layout_gravity="bottom|right"

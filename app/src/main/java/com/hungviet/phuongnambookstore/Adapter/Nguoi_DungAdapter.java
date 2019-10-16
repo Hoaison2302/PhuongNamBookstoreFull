@@ -2,23 +2,20 @@ package com.hungviet.phuongnambookstore.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hungviet.phuongnambookstore.Activity.Create_Accout.TaoTaiKhoan1Activity;
-import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_NhapActivity;
+import com.google.android.material.textfield.TextInputEditText;
+import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
 import com.hungviet.phuongnambookstore.R;
 import com.hungviet.phuongnambookstore.model.Person;
-import com.hungviet.phuongnambookstore.model.Sach;
 
 import java.util.List;
 
@@ -26,6 +23,7 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
 
     private List<Person> personList;
     private Context context;
+    private NguoiDungDao nguoiDungDao;
 
     public Nguoi_DungAdapter(List<Person> personList, Context context) {
         this.personList = personList;
@@ -40,21 +38,34 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final NguoiDung_Adapter holder, int position) {
-        holder.email.setText(personList.get(position).Email);
-        holder.kechan.setImageResource(personList.get(position).kechan);
-        holder.thucrac.setImageResource(personList.get(position).thucrac);
-        holder.custom.setImageResource(personList.get(position).custom);
+    public void onBindViewHolder(@NonNull final NguoiDung_Adapter holder, final int position) {
+        holder.email.setText(personList.get(position).email);
+//        holder.kechan.setImageResource(personList.get(position).kechan);
+//        holder.thucrac.setImageResource(personList.get(position).thucrac);
+//        holder.custom.setImageResource(personList.get(position).custom);
 
 
 
         holder.thucrac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Button ok,cancel;
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                View dialog  = LayoutInflater.from(context).inflate(R.layout.xoa_nguoi_dung_dialog,null);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                final View dialog  = LayoutInflater.from(context).inflate(R.layout.xoa_nguoi_dung_dialog,null);
                 builder.setView(dialog);
+
+                ok=dialog.findViewById(R.id.btnallow);
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        nguoiDungDao = new NguoiDungDao(context);
+                        nguoiDungDao.deleteUser(personList.get(position).sdt);
+                        notifyDataSetChanged();
+                        personList.remove(position);
+
+                    }
+                });
 
                 builder.create();
                 builder.show();
@@ -66,6 +77,15 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 View dialog  = LayoutInflater.from(context).inflate(R.layout.sua_nguoi_dung,null);
                 builder.setView(dialog);
+                TextInputEditText email,hoten,matkhau;
+                email=dialog.findViewById(R.id.email_nguoidung);
+                hoten=dialog.findViewById(R.id.hoten_nguoidung);
+                matkhau=dialog.findViewById(R.id.matkhau_nguoidung);
+
+
+//                nguoiDungDao=new NguoiDungDao(context);
+//
+//                nguoiDungDao.updateUser();
 
                 builder.create();
                 builder.show();

@@ -1,20 +1,23 @@
 package com.hungviet.phuongnambookstore.Activity.Create_Accout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.hungviet.phuongnambookstore.Activity.Sach.Welcome;
 import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
 import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.Thong_Tin_Nguoi_DungActivity;
-import com.hungviet.phuongnambookstore.model.BaseActivity;
 import com.hungviet.phuongnambookstore.R;
+import com.hungviet.phuongnambookstore.model.BaseActivity;
 import com.hungviet.phuongnambookstore.model.Person;
 
 import java.util.List;
 
-public class TaoTaiKhoan2Activity extends BaseActivity {
+public class TaoTaiKhoan1 extends BaseActivity {
     private TextInputEditText sdt,email,hoten,matkhau;
     private Person person;
     List<Person> personList;
@@ -48,7 +51,7 @@ public class TaoTaiKhoan2Activity extends BaseActivity {
 
 
 
-        nguoiDungDao =new NguoiDungDao(TaoTaiKhoan2Activity.this);
+        nguoiDungDao =new NguoiDungDao(TaoTaiKhoan1.this);
 
         person =new Person();
 
@@ -76,15 +79,11 @@ public class TaoTaiKhoan2Activity extends BaseActivity {
         }else {
             long resurt = nguoiDungDao.insertUser(person);
             if(resurt>0){
-                Toast.makeText(TaoTaiKhoan2Activity.this,"Thêm Người Dùng Thành Công",Toast.LENGTH_SHORT).show();
-                openActivity(Thong_Tin_Nguoi_DungActivity.class);
+                Toast.makeText(TaoTaiKhoan1.this,"Thêm Người Dùng Thành Công",Toast.LENGTH_SHORT).show();
+                openActivity(Welcome.class);
 
 
             }
 
-
-
-
-
-    }
+        }
 }}

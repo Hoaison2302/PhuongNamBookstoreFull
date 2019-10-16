@@ -8,13 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.hungviet.phuongnambookstore.Activity.Create_Accout.TaoTaiKhoan1Activity;
+import com.hungviet.phuongnambookstore.Activity.Create_Accout.TaoTaiKhoan2Activity;
 import com.hungviet.phuongnambookstore.Adapter.Nguoi_DungAdapter;
 import com.hungviet.phuongnambookstore.R;
 import com.hungviet.phuongnambookstore.model.BaseActivity;
 import com.hungviet.phuongnambookstore.model.Person;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Thong_Tin_Nguoi_DungActivity extends BaseActivity {
@@ -22,6 +21,7 @@ public class Thong_Tin_Nguoi_DungActivity extends BaseActivity {
     private RecyclerView recyclerView_Thong_tin_nguoi_dung;
     private List<Person> personList;
     private FloatingActionButton floatingActionButton;
+    private NguoiDungDao nguoiDungDao;
 
     private Nguoi_DungAdapter nguoiDung_adapter;
     @Override
@@ -35,21 +35,8 @@ public class Thong_Tin_Nguoi_DungActivity extends BaseActivity {
 //...
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(drawable);
-
-
-
-
-
-        personList = new ArrayList<>();
-
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-        personList.add(new Person("hungdieu182@gmail.com",null,null,null,R.drawable.kechan,R.drawable.custom,R.drawable.thungrac));
-
+        nguoiDungDao=new NguoiDungDao(this);
+        personList=nguoiDungDao.getAll();
 
 
 
@@ -64,7 +51,7 @@ public class Thong_Tin_Nguoi_DungActivity extends BaseActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivity(TaoTaiKhoan1Activity.class);
+                openActivity(TaoTaiKhoan2Activity.class);
             }
         });
     }

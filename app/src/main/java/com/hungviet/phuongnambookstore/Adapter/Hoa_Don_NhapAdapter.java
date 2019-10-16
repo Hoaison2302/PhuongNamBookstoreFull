@@ -36,8 +36,8 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
     @Override
     public void onBindViewHolder(@NonNull final HoaDonHolder holder, int position) {
         holder.tvtensach.setText(hoa_don_nhapList.get(position).getTensach());
-        holder.tvgianhap.setText(hoa_don_nhapList.get(position).getGianhap());
-        holder.tvsoluongnhap.setText(hoa_don_nhapList.get(position).getSoluong());
+        holder.tvgianhap.setText(String.valueOf(hoa_don_nhapList.get(position).getGianhap()));
+        holder.tvsoluongnhap.setText(String.valueOf(hoa_don_nhapList.get(position).getSoluong()));
         holder.tvtheloai.setText(hoa_don_nhapList.get(position).getTheloai());
         holder.tvngaynhap.setText(hoa_don_nhapList.get(position).getNgaynhap());
 

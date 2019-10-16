@@ -9,72 +9,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.Create_Accout.TaoTaiKhoan1"></activity>
         <activity
+            android:name=".Activity.Sach.Sua_SachActivity"
             android:label="Nhà sách Phương Nam"
-            android:parentActivityName=".Activity.Sach.HomeActivity"
-            android:name=".Activity.Sach.Sua_SachActivity"></activity>
-        <activity
-            android:label="Nhà sách Phương Nam"
-            android:parentActivityName=".Activity.Sach.HomeActivity"
-            android:name=".Activity.Thong_Tin.Thong_tinActivity"></activity>
-        <activity
-            android:label="Nhà sách Phương Nam"
-            android:name=".Activity.Top_Ban_Chay.Them_Top_SachActivity"
-            android:parentActivityName=".Activity.Top_Ban_Chay.Top_Ban_ChayActivity"></activity>
-        <activity
-            android:label="Nhà sách Phương Nam"
-            android:name=".Activity.Hoa_Don.Hoa_Don_BanActivity"
             android:parentActivityName=".Activity.Sach.HomeActivity" />
         <activity
-            android:parentActivityName=".Activity.Sach.HomeActivity"
-            android:name=".Activity.Sach.Them_SachActivity" />
-        <activity
+            android:name=".Activity.Thong_Tin.Thong_tinActivity"
             android:label="Nhà sách Phương Nam"
+            android:parentActivityName=".Activity.Sach.HomeActivity" />
+        <activity
+            android:name=".Activity.Top_Ban_Chay.Them_Top_SachActivity"
+            android:label="Nhà sách Phương Nam"
+            android:parentActivityName=".Activity.Top_Ban_Chay.Top_Ban_ChayActivity" />
+        <activity
+            android:name=".Activity.Hoa_Don.Hoa_Don_BanActivity"
+            android:label="Nhà sách Phương Nam"
+            android:parentActivityName=".Activity.Sach.HomeActivity" />
+        <activity
+            android:name=".Activity.Sach.Them_SachActivity"
+            android:parentActivityName=".Activity.Sach.HomeActivity" />
+        <activity
             android:name=".Activity.Top_Ban_Chay.Top_Ban_ChayActivity"
+            android:label="Nhà sách Phương Nam"
+            android:parentActivityName=".Activity.Sach.HomeActivity" />
+        <activity
+            android:name=".Activity.Hoa_Don.Hoa_Don_NhapActivity"
+            android:label="Nhà sách Phương Nam"
             android:parentActivityName=".Activity.Sach.HomeActivity"></activity>
         <activity
-            android:label="Nhà sách Phương Nam"
-            android:name=".Activity.Hoa_Don.Hoa_Don_NhapActivity"
-            android:parentActivityName=".Activity.Sach.HomeActivity" >
-
-        </activity>
-        <activity
-            android:label="Nhà sách Phương Nam"
             android:name=".Activity.Thong_Tin_Nguoi_Dung.Thong_Tin_Nguoi_DungActivity"
-            android:parentActivityName=".Activity.Sach.HomeActivity" >
-
-        </activity>
+            android:label="Nhà sách Phương Nam"
+            android:parentActivityName=".Activity.Sach.HomeActivity"></activity>
         <activity
-            android:label="Kết nối với facebook"
             android:name=".Activity.Login_To_Facebook.Login_to_facebookActivity"
-            android:parentActivityName=".Activity.Sach.Welcome" />
-        <activity
-            android:name=".Activity.Create_Accout.TaoTaiKhoan5Activity"
-            android:label="Đăng ký"
-            android:parentActivityName=".Activity.Sach.Welcome"></activity>
-        <activity
-            android:name=".Activity.Create_Accout.TaoTaiKhoan4Activity"
-            android:label="Nhập mật khẩu"
-            android:parentActivityName=".Activity.Sach.Welcome" />
-        <activity
-            android:name=".Activity.Create_Accout.TaoTaiKhoan3Activity"
-            android:label="Nhập tên"
+            android:label="Kết nối với facebook"
             android:parentActivityName=".Activity.Sach.Welcome" />
         <activity
             android:name=".Activity.Create_Accout.TaoTaiKhoan2Activity"
-            android:label="Nhập email"
+            android:label="Đăng ký"
             android:parentActivityName=".Activity.Sach.Welcome" />
         <activity
-            android:label="Nhà sách Phương Nam"
             android:name=".Activity.Thong_Ke.Thong_KeActivity"
+            android:label="Nhà sách Phương Nam"
             android:parentActivityName=".Activity.Sach.HomeActivity" />
         <activity
             android:name=".Activity.Sach.HomeActivity"
-            android:parentActivityName=".Activity.Sach.Welcome"></activity>
-        <activity
-            android:name=".Activity.Create_Accout.TaoTaiKhoan1Activity"
-            android:label="Nhập số điện thoại"
-            android:parentActivityName=".Activity.Sach.Welcome"></activity>
+            android:parentActivityName=".Activity.Sach.Welcome" />
         <activity
             android:name=".Activity.Lay_Lai_Tai_Khoan.QuenMatKhau1Activity"
             android:parentActivityName=".Activity.Sach.Welcome" />
@@ -86,7 +67,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

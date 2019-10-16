@@ -16,16 +16,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hungviet.phuongnambookstore.Activity.Sach.SachDao;
 import com.hungviet.phuongnambookstore.Activity.Sach.Sua_SachActivity;
-import com.hungviet.phuongnambookstore.Activity.Sach.Them_SachActivity;
+import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
 import com.hungviet.phuongnambookstore.R;
-import com.hungviet.phuongnambookstore.model.Sach;
+import com.hungviet.phuongnambookstore.model.Sach.Sach;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     private List<Sach> sachList;
     private Context context;
+    SachDao sachDao;
+
 
     public SachAdapter(List<Sach> sachList, Context context) {
         this.sachList = sachList;
@@ -41,14 +45,14 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final SachHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final SachHolder holder, final int position) {
         holder.tvten.setText(sachList.get(position).ten);
         holder.tvtacgia.setText(sachList.get(position).tacgia);
-        holder.tvgia.setText(sachList.get(position).gia);
-        holder.tvluotxem.setText(sachList.get(position).luotxem);
-        holder.anh.setImageResource(sachList.get(position).anh);
-        holder.view.setImageResource(sachList.get(position).view);
-        holder.luachon.setImageResource(sachList.get(position).luachon);
+        holder.tvgia.setText(String.valueOf(sachList.get(position).getGia()));
+        holder.tvluotxem.setText(String.valueOf(sachList.get(position).getLuotxem()));
+
+
+
 
         holder.luachon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,33 +64,35 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.pocup_xoa:
+                                Button ok,cancel;
+
                                 final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                                 final View dialog  = LayoutInflater.from(context).inflate(R.layout.xoa_dau_sach_dialog,null);
                                 builder.setView(dialog);
 
+                                ok=dialog.findViewById(R.id.btnallow);
+                                ok.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+
+                                        sachDao = new SachDao(context);
+                                        sachDao.deleteUser(sachList.get(position).ten);
+                                        notifyDataSetChanged();
+                                        sachList.remove(position);
+
+                                    }
+                                });
+
                                 builder.create();
                                 builder.show();
 
-
-                            Button btnAllow,btncancel;
-                            btnAllow = dialog.findViewById(R.id.btnallow);
-                            btncancel=dialog.findViewById(R.id.btncancel);
-
-
-
-                            btnAllow.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Toast.makeText(context,"Đã Xóa!",Toast.LENGTH_SHORT).show();
-
-                                }
-                            });
-                                btncancel.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Toast.makeText(context,"Không Xóa!",Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+//                            cancel.setOnClickListener(new View.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(View v) {
+//                                        Toast.makeText(context,"Không Xóa!",Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
                                 break;
 
                             case R.id.pocup_sua:

@@ -1,38 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
     android:background="@color/backgroud"
     android:layout_width="match_parent"
-    android:padding="16dp"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activity.Create_Accout.TaoTaiKhoan2Activity">
 
+
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
         app:counterEnabled="true"
         app:counterMaxLength="50"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:id="@+id/sdt"
+            android:layout_height="70dp"
+            android:hint="Số điện thoại" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            android:layout_marginTop="5dp"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:id="@+id/email"
+                android:hint="Email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/hoten"
+                    android:layout_height="70dp"
+                    android:hint="Họ tên" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/matkhau"
+                        android:inputType="textPassword"
+                        android:layout_height="70dp"
+                        android:hint="Mật khẩu" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
-        android:text="Vui lòng nhập email (đúng định dạng)"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_marginTop="30dp"
+        android:onClick="dangky"
+        style="@style/btndo"
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Đăng Ký" />
+</LinearLayout>
