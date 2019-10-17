@@ -1,8 +1,8 @@
 package com.hungviet.phuongnambookstore.model;
 
 public class Hoa_Don_Nhap {
-    public String theloai,tensach,ngaynhap,mahoadonnhap;
-    public int gianhap,soluong;
+    public String theloai,tensach,ngaynhap,mahoadonnhap,gianhap,soluong;
+
 
     public String getTheloai() {
         return theloai;
@@ -36,19 +36,19 @@ public class Hoa_Don_Nhap {
         this.mahoadonnhap = mahoadonnhap;
     }
 
-    public int getGianhap() {
+    public String getGianhap() {
         return gianhap;
     }
 
-    public void setGianhap(int gianhap) {
+    public void setGianhap(String gianhap) {
         this.gianhap = gianhap;
     }
 
-    public int getSoluong() {
+    public String getSoluong() {
         return soluong;
     }
 
-    public void setSoluong(int soluong) {
+    public void setSoluong(String soluong) {
         this.soluong = soluong;
     }
 }

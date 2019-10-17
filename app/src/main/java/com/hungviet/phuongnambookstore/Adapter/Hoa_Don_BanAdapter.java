@@ -40,8 +40,8 @@ public class Hoa_Don_BanAdapter extends RecyclerView.Adapter<Hoa_Don_BanAdapter.
     @Override
     public void onBindViewHolder(@NonNull Hoa_Don_BanAdapter.HoadonbanHolder holder, final int position) {
         holder.tvtensach.setText(hoa_don_banList.get(position).getTensach());
-        holder.tvgianhap.setText(String.valueOf(hoa_don_banList.get(position).getGiaban()));
-        holder.tvsoluongnhap.setText(String.valueOf(hoa_don_banList.get(position).getSoluongban()));
+        holder.tvgianhap.setText(hoa_don_banList.get(position).getGiaban());
+        holder.tvsoluongnhap.setText(hoa_don_banList.get(position).getSoluongban());
         holder.tvtheloai.setText(hoa_don_banList.get(position).getTheloai());
         holder.tvngaynhap.setText(hoa_don_banList.get(position).getNgayban()+"");
 

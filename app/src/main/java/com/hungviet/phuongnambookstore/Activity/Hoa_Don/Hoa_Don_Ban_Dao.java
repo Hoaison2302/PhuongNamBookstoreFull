@@ -50,8 +50,8 @@ public class Hoa_Don_Ban_Dao {
                     hoa_don_ban.setTheloai(cursor.getString(cursor.getColumnIndex(THELOAI)));
                     hoa_don_ban.setTensach(cursor.getString(cursor.getColumnIndex(TENSACH)));
                     hoa_don_ban.setNgayban(cursor.getString(cursor.getColumnIndex(NGAYBAN)));
-                    hoa_don_ban.setSoluongban(cursor.getInt(cursor.getColumnIndex(SOLUONGBAN)));
-                    hoa_don_ban.setGiaban(cursor.getInt(cursor.getColumnIndex(GIABAN)));
+                    hoa_don_ban.setSoluongban(cursor.getString(cursor.getColumnIndex(SOLUONGBAN)));
+                    hoa_don_ban.setGiaban(cursor.getString(cursor.getColumnIndex(GIABAN)));
                     hoa_don_ban.setMahoadonban(cursor.getString(cursor.getColumnIndex(MAHOADONBAN)));
 
 

@@ -5,12 +5,15 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_Ban_Dao;
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_Nhap_Dao;
 import com.hungviet.phuongnambookstore.R;
 import com.hungviet.phuongnambookstore.model.Hoa_Don_Nhap;
 
@@ -19,6 +22,7 @@ import java.util.List;
 public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapter.HoaDonHolder> {
     private List<Hoa_Don_Nhap> hoa_don_nhapList;
     private Context context;
+    private Hoa_Don_Nhap_Dao hoa_don_nhap_dao;
 
     public Hoa_Don_NhapAdapter(List<Hoa_Don_Nhap> hoa_don_nhapList, Context context) {
         this.hoa_don_nhapList = hoa_don_nhapList;
@@ -34,10 +38,10 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HoaDonHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HoaDonHolder holder, final int position) {
         holder.tvtensach.setText(hoa_don_nhapList.get(position).getTensach());
-        holder.tvgianhap.setText(String.valueOf(hoa_don_nhapList.get(position).getGianhap()));
-        holder.tvsoluongnhap.setText(String.valueOf(hoa_don_nhapList.get(position).getSoluong()));
+        holder.tvgianhap.setText(hoa_don_nhapList.get(position).getGianhap()+"");
+        holder.tvsoluongnhap.setText(hoa_don_nhapList.get(position).getSoluong());
         holder.tvtheloai.setText(hoa_don_nhapList.get(position).getTheloai());
         holder.tvngaynhap.setText(hoa_don_nhapList.get(position).getNgaynhap());
 
@@ -52,6 +56,21 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 View dialog  = LayoutInflater.from(context).inflate(R.layout.xoa_hoa_don_dialog,null);
                 builder.setView(dialog);
+                final Button ok,cancel;
+                ok=dialog.findViewById(R.id.btnallow);
+                cancel=dialog.findViewById(R.id.btncancel);
+
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        hoa_don_nhap_dao = new Hoa_Don_Nhap_Dao(context);
+
+                        hoa_don_nhap_dao.deleteUser(hoa_don_nhapList.get(position).mahoadonnhap);
+                        notifyDataSetChanged();
+                        hoa_don_nhapList.remove(position);
+
+                    }
+                });
 
                 builder.create();
                 builder.show();

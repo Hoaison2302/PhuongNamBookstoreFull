@@ -117,8 +117,8 @@ public class Hoa_Don_BanActivity extends BaseActivity {
 
                         hoa_don_ban.setTheloai(edttheloai.getText().toString().trim());
                         hoa_don_ban.setTensach(edttensach.getText().toString().trim());
-                        hoa_don_ban.setSoluongban(Integer.parseInt(edtsoluong.getText().toString().trim()));
-                        hoa_don_ban.setGiaban(Integer.parseInt(edtgia.getText().toString().trim()));
+                        hoa_don_ban.setSoluongban(edtsoluong.getText().toString().trim());
+                        hoa_don_ban.setGiaban(edtgia.getText().toString().trim());
                         hoa_don_ban.setNgayban(edtngay.getText().toString().trim());
                         hoa_don_ban.setMahoadonban(edtmasach.getText().toString().trim());
 

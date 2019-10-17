@@ -1,8 +1,7 @@
 package com.hungviet.phuongnambookstore.model;
 
 public class Hoa_Don_Ban {
-    public String theloai,tensach,ngayban,mahoadonban;
-    public int giaban,soluongban;
+    public String theloai,tensach,ngayban,mahoadonban,giaban,soluongban;
 
     public String getTheloai() {
         return theloai;
@@ -36,19 +35,19 @@ public class Hoa_Don_Ban {
         this.mahoadonban = mahoadonban;
     }
 
-    public int getGiaban() {
+    public String getGiaban() {
         return giaban;
     }
 
-    public void setGiaban(int giaban) {
+    public void setGiaban(String giaban) {
         this.giaban = giaban;
     }
 
-    public int getSoluongban() {
+    public String getSoluongban() {
         return soluongban;
     }
 
-    public void setSoluongban(int soluongban) {
+    public void setSoluongban(String soluongban) {
         this.soluongban = soluongban;
     }
 }

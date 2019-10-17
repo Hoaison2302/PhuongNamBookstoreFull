@@ -27,7 +27,7 @@ public class Hoa_Don_Nhap_Dao {
     public String TENSACH = "tensach";
     public String NGAYNHAP = "ngaynhap";
     public String SOLUONG = "soluong";
-    public String GIANHAP = "giaban";
+    public String GIANHAP = "gianhap";
     public String MAHOADONNHAP = "mahoadonnhap";
 
 
@@ -51,8 +51,9 @@ public class Hoa_Don_Nhap_Dao {
                     hoa_don_nhap.setTheloai(cursor.getString(cursor.getColumnIndex(THELOAI)));
                     hoa_don_nhap.setTensach(cursor.getString(cursor.getColumnIndex(TENSACH)));
                     hoa_don_nhap.setNgaynhap(cursor.getString(cursor.getColumnIndex(NGAYNHAP)));
-                    hoa_don_nhap.setSoluong(cursor.getInt(cursor.getColumnIndex(SOLUONG)));
-                    hoa_don_nhap.setGianhap(cursor.getInt(cursor.getColumnIndex(GIANHAP)));
+                    hoa_don_nhap.setGianhap(cursor.getString(cursor.getColumnIndex(GIANHAP)));
+                    hoa_don_nhap.setSoluong(cursor.getString(cursor.getColumnIndex(SOLUONG)));
+
                     hoa_don_nhap.setMahoadonnhap(cursor.getString(cursor.getColumnIndex(MAHOADONNHAP)));
 
                     hoa_don_nhapList.add(hoa_don_nhap);
@@ -65,41 +66,41 @@ public class Hoa_Don_Nhap_Dao {
 
         return hoa_don_nhapList;
     }
-//    public long insertUser(Hoa_Don_Ban hoa_don_ban) {
-//        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
-//
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(THELOAI, hoa_don_ban.getTheloai());
-//        contentValues.put(TENSACH, hoa_don_ban.getTensach());
-//        contentValues.put(GIABAN, hoa_don_ban.getGiaban());
-//        contentValues.put(SOLUONGBAN,hoa_don_ban.getSoluongban());
-//        contentValues.put(MAHOADONBAN,hoa_don_ban.getMahoadonban());
-//
-//
-//        long result = sqLiteDatabase.insert(USER_TABLE, null, contentValues);
-//        sqLiteDatabase.close();
-//        return result;
-//    }
-//
-//    public long updateUser(Hoa_Don_Ban hoa_don_ban) {
-//        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
-//
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(THELOAI, hoa_don_ban.getTheloai());
-//        contentValues.put(TENSACH, hoa_don_ban.getTensach());
-//        contentValues.put(GIABAN, hoa_don_ban.getGiaban());
-//        contentValues.put(SOLUONGBAN,hoa_don_ban.getSoluongban());
-//        contentValues.put(MAHOADONBAN,hoa_don_ban.getMahoadonban());
-//
-//        long result = sqLiteDatabase.update(USER_TABLE,contentValues, TENSACH + "=?", new String[]{hoa_don_ban.getMahoadonban()});
-//        sqLiteDatabase.close();
-//        return result;
-//    }
-//    public void deleteUser(String id) {
-//        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
-//
-//        sqLiteDatabase.delete(USER_TABLE, MAHOADONBAN + "=?", new String[]{id});
-//
-//    }
+    public long insertUser(Hoa_Don_Nhap hoa_don_nhap) {
+        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(THELOAI, hoa_don_nhap.getTheloai());
+        contentValues.put(TENSACH, hoa_don_nhap.getTensach());
+        contentValues.put(NGAYNHAP, hoa_don_nhap.getNgaynhap());
+        contentValues.put(SOLUONG,hoa_don_nhap.getSoluong());
+        contentValues.put(MAHOADONNHAP,hoa_don_nhap.getMahoadonnhap());
+
+
+        long result = sqLiteDatabase.insert(USER_TABLE, null, contentValues);
+        sqLiteDatabase.close();
+        return result;
+    }
+
+    public long updateUser(Hoa_Don_Nhap hoa_don_nhap) {
+        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(THELOAI, hoa_don_nhap.getTheloai());
+        contentValues.put(TENSACH, hoa_don_nhap.getTensach());
+        contentValues.put(NGAYNHAP, hoa_don_nhap.getNgaynhap());
+        contentValues.put(SOLUONG,hoa_don_nhap.getSoluong());
+        contentValues.put(MAHOADONNHAP,hoa_don_nhap.getMahoadonnhap());
+
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, TENSACH + "=?", new String[]{hoa_don_nhap.getMahoadonnhap()});
+        sqLiteDatabase.close();
+        return result;
+    }
+    public void deleteUser(String id) {
+        SQLiteDatabase sqLiteDatabase = sachSqlite.getWritableDatabase();
+
+        sqLiteDatabase.delete(USER_TABLE, MAHOADONNHAP + "=?", new String[]{id});
+
+    }
 
 }

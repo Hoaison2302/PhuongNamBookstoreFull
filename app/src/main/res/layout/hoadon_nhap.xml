@@ -36,53 +36,122 @@
             android:layout_marginRight="10dp"
             app:srcCompat="@drawable/thungrac" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+
+            android:text="Thể loại:"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="75dp" />
         <TextView
             android:id="@+id/tvtheloai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16dp"
 
-            android:text="Thể loại: Kinh doanh"
+            android:text="Kinh doanh"
             android:layout_marginTop="12dp"
-            android:layout_marginLeft="75dp" />
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_marginTop="35dp"
             android:layout_marginLeft="75dp"
+            android:layout_width="wrap_content"
+            android:textSize="16dp"
+            android:layout_height="wrap_content"
+            android:text="Tên sách:"
+            app:layout_constraintBottom_toTopOf="@+id/tvngaynhap"
+            app:layout_constraintStart_toStartOf="@+id/tvngaynhap" />
+        <TextView
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/tvtensach"
             android:layout_width="wrap_content"
             android:textSize="16dp"
 
             android:layout_height="wrap_content"
-            android:text="Tên sách: Lãnh đạo 4.0"
+            android:text="Lãnh đạo 4.0"
             app:layout_constraintBottom_toTopOf="@+id/tvngaynhap"
             app:layout_constraintStart_toStartOf="@+id/tvngaynhap" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="75dp"
+            android:textSize="16dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ngày nhập:" />
     <TextView
         android:layout_marginTop="60dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/tvngaynhap"
         android:textSize="16dp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ngày nhập: 22/09/2019" />
+        android:text="22/09/2019" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginTop="82dp"
+            android:layout_marginLeft="75dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+
+            android:text="Số lương nhập:"
+            app:layout_constraintStart_toStartOf="@+id/tvngaynhap"
+            app:layout_constraintTop_toBottomOf="@+id/tvngaynhap" />
     <TextView
         android:layout_marginTop="82dp"
-        android:layout_marginLeft="75dp"
+        android:layout_marginLeft="5dp"
             android:id="@+id/tvsoluongnhap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16dp"
 
-            android:text="Số lương nhập: 20"
+            android:text="20"
             app:layout_constraintStart_toStartOf="@+id/tvngaynhap"
             app:layout_constraintTop_toBottomOf="@+id/tvngaynhap" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_marginTop="102dp"
             android:layout_marginLeft="75dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giá nhập:"
+            app:layout_constraintStart_toStartOf="@+id/tvsoluongnhap"
+            app:layout_constraintTop_toBottomOf="@+id/tvsoluongnhap" />
+
+        <TextView
+            android:layout_marginTop="102dp"
+            android:layout_marginLeft="5dp"
             android:textSize="16dp"
             android:id="@+id/tvgianhap"
             android:layout_width="wrap_content"
@@ -90,5 +159,6 @@
             android:text="Giá nhập: 55.000 VNĐ"
             app:layout_constraintStart_toStartOf="@+id/tvsoluongnhap"
             app:layout_constraintTop_toBottomOf="@+id/tvsoluongnhap" />
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
