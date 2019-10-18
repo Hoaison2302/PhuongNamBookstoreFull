@@ -39,7 +39,7 @@ public class Them_SachActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them__sach);
         btnthem = findViewById(R.id.btnthem);
-        edtmasach=findViewById(R.id.edtmasach);
+
 
         Drawable drawable= getResources().getDrawable(R.drawable.close);
         sachDao=new SachDao(this);
@@ -59,6 +59,7 @@ public class Them_SachActivity extends BaseActivity {
                 edtgia=findViewById(R.id.btngiathem);
                 edtluotxem=findViewById(R.id.btnluotxemthem);
                 edttacgia=findViewById(R.id.btntacgiathem);
+                edtmasach=findViewById(R.id.edtmasachs);
 
 
 
@@ -88,6 +89,7 @@ public class Them_SachActivity extends BaseActivity {
                     sachlist1.setLuotxem(edtluotxem.getText().toString().trim());
                     sachlist1.setTacgia(edttacgia.getText().toString().trim());
                     sachlist1.setMasach(edtmasach.getText().toString().trim());
+
                     long resurt = sachDao.insertUser(sachlist1);
                     if(resurt>0){
                         Toast.makeText(Them_SachActivity.this,"Thêm Sách Thành Công!",Toast.LENGTH_SHORT).show();

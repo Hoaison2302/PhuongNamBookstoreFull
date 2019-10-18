@@ -161,15 +161,15 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
 
                         if (theloai.equals("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
-                        }if (tensach.equals("")){
+                        }else if (tensach.equals("")){
                             Toast.makeText(context,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
-                        }if (ngaynhap.equals("")){
+                        }else if (ngaynhap.equals("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
-                        }if (soluong.equals("")){
+                        }else if (soluong.equals("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
-                        }if (gianhap.equals("")){
+                        }else if (gianhap.equals("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
-                        }if (mahoadonnhap.equalsIgnoreCase("")){
+                        }else if (mahoadonnhap.equalsIgnoreCase("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else {
 

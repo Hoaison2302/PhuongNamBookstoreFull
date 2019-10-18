@@ -48,7 +48,7 @@
         <activity
             android:name=".Activity.Create_Accout.TaoTaiKhoan2Activity"
             android:label="Đăng ký"
-            android:parentActivityName=".Activity.Sach.Welcome" />
+            android:parentActivityName=".Activity.Thong_Tin_Nguoi_Dung.Thong_Tin_Nguoi_DungActivity" />
         <activity
             android:name=".Activity.Thong_Ke.Thong_KeActivity"
             android:label="Nhà sách Phương Nam"

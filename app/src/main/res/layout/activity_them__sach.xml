@@ -91,7 +91,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:id="@+id/edtmasach"
+            android:id="@+id/edtmasachs"
             android:layout_height="wrap_content"
             android:hint="Mã Sách" />
     </com.google.android.material.textfield.TextInputLayout>

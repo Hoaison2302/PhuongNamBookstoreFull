@@ -81,12 +81,15 @@ public class SachDao {
     public long updateUser(Sach sach) {
         SQLiteDatabase sqLiteDatabase = nguoidungSqlite.getWritableDatabase();
 
+
+
         ContentValues contentValues = new ContentValues();
         contentValues.put(TENSACH, sach.getTen());
         contentValues.put(TACGIASACH, sach.getTacgia());
         contentValues.put(GIA, sach.getGia());
         contentValues.put(LUOTXEM,sach.getLuotxem());
         contentValues.put(MASACH,sach.getMasach());
+
         long result = sqLiteDatabase.update(USER_TABLE,contentValues, MASACH + "=?", new String[]{sach.getMasach()});
         sqLiteDatabase.close();
         return result;

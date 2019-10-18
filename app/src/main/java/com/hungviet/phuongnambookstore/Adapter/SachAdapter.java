@@ -19,7 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_NhapActivity;
 import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_Nhap_Dao;
+import com.hungviet.phuongnambookstore.Activity.Sach.HomeActivity;
 import com.hungviet.phuongnambookstore.Activity.Sach.SachDao;
 import com.hungviet.phuongnambookstore.Activity.Sach.Sua_SachActivity;
 import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
@@ -56,7 +58,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     public void onBindViewHolder(@NonNull final SachHolder holder, final int position) {
         holder.tvten.setText(sachList.get(position).getTen());
         holder.tvtacgia.setText(sachList.get(position).getTacgia());
-        holder.tvgia.setText(sachList.get(position).getGia());
+        holder.tvgia.setText(sachList.get(position).getGia()+" $");
         holder.tvluotxem.setText(sachList.get(position).getLuotxem());
 
 
@@ -86,9 +88,9 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
                                         sachDao = new SachDao(context);
-                                        sachDao.deleteUser(sachList.get(position).ten);
-                                        notifyDataSetChanged();
+                                        sachDao.deleteUser(sachList.get(position).getMasach());
                                         sachList.remove(position);
+                                        notifyDataSetChanged();
                                         alertDialog.dismiss();
 
                                     }
@@ -159,9 +161,6 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                         String ngaynhap = edtmasach_sach.getText().toString().trim();
 
 
-
-
-
                         if (theloai.equals("")){
                             Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
@@ -184,14 +183,22 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                             sachhhhh.setMasach(edtmasach_sach.getText().toString().trim());
 
 
+                            sachDao = new SachDao(context);
 
                             long resurt = sachDao.updateUser(sachhhhh);
                             if(resurt>0){
                                 Toast.makeText(context,"Update Thành Công!",Toast.LENGTH_SHORT).show();
 
+                                alertDialog.dismiss();
+                                Intent intent
+                                        =new Intent(context, HomeActivity.class);
+                                context.startActivity(intent);
+
+
                             }else {
                                 Toast.makeText(context,"Update Thất Bại!",Toast.LENGTH_SHORT).show();
                             }
+                            notifyDataSetChanged();
                         }
                     }
                 });
@@ -199,7 +206,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
                 builder1.create();
-                builder1.show();
+                alertDialog=builder1.show();
                 return false;
             }
         });

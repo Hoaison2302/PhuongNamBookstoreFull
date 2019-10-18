@@ -69,7 +69,7 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                     @Override
                     public void onClick(View v) {
                         nguoiDungDao = new NguoiDungDao(context);
-                        nguoiDungDao.deleteUser(personList.get(position).sdt);
+                        nguoiDungDao.deleteUser(personList.get(position).getManguoidung());
                         notifyDataSetChanged();
                         personList.remove(position);
                         alertDialog.dismiss();
