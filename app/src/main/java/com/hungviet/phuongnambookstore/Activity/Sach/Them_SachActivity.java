@@ -27,11 +27,11 @@ import com.hungviet.phuongnambookstore.model.BaseActivity;
 import com.hungviet.phuongnambookstore.model.Sach.Sach;
 
 public class Them_SachActivity extends BaseActivity {
-    private Sach sachlist;
+    private Sach sachlist1;
     private SachAdapter sachAdapter;
     Button btnthem;
     private SachDao sachDao;
-    private TextInputEditText edttensach,edttacgia,edtgia,edtluotxem;
+    private TextInputEditText edttensach,edttacgia,edtgia,edtluotxem,edtmasach;
 
 
     @Override
@@ -39,6 +39,8 @@ public class Them_SachActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them__sach);
         btnthem = findViewById(R.id.btnthem);
+        edtmasach=findViewById(R.id.edtmasach);
+
         Drawable drawable= getResources().getDrawable(R.drawable.close);
         sachDao=new SachDao(this);
 
@@ -54,7 +56,7 @@ public class Them_SachActivity extends BaseActivity {
 
 
                 edttensach=findViewById(R.id.btntensachthem);
-                edtgia=findViewById(R.id.btntacgiathem);
+                edtgia=findViewById(R.id.btngiathem);
                 edtluotxem=findViewById(R.id.btnluotxemthem);
                 edttacgia=findViewById(R.id.btntacgiathem);
 
@@ -63,26 +65,30 @@ public class Them_SachActivity extends BaseActivity {
 
 
                 String tensach = edttensach.getText().toString().trim();
-                String gia = String.valueOf(edtgia.getText().toString().trim());
-                String luotxem = String.valueOf(edtluotxem.getText().toString().trim());
+                String gia = edtgia.getText().toString().trim();
+                String luotxem = edtluotxem.getText().toString().trim();
                 String tacgia = edttacgia.getText().toString().trim();
+                String masachh = edtmasach.getText().toString().trim();
 
 
-                if (tensach.equals("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
-                }else if (tacgia.equals("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Nhập Tác Giả!",Toast.LENGTH_SHORT).show();
-                }else if (gia.equals("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Nhập Giá Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
-                }else if (luotxem.equals("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Nhập Lượt Xem Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
+                if (tensach.equalsIgnoreCase("")){
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                }else if (tacgia.equalsIgnoreCase("")){
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                }else if (gia.equalsIgnoreCase("")){
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                }else if (luotxem.equalsIgnoreCase("")){
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                }else if (masachh.equalsIgnoreCase("")){
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                 }else {
-                    sachlist = new Sach();
-                    sachlist.setTen(edttensach.getText().toString().trim());
-                    sachlist.setGia(Integer.parseInt(edtgia.getText().toString().trim()));
-                    sachlist.setLuotxem(Integer.parseInt(edtluotxem.getText().toString().trim()));
-                    sachlist.setTacgia(edttacgia.getText().toString().trim());
-                    long resurt = sachDao.insertUser(sachlist);
+                    sachlist1 = new Sach();
+                    sachlist1.setTen(edttensach.getText().toString().trim());
+                    sachlist1.setGia(edtgia.getText().toString().trim());
+                    sachlist1.setLuotxem(edtluotxem.getText().toString().trim());
+                    sachlist1.setTacgia(edttacgia.getText().toString().trim());
+                    sachlist1.setMasach(edtmasach.getText().toString().trim());
+                    long resurt = sachDao.insertUser(sachlist1);
                     if(resurt>0){
                         Toast.makeText(Them_SachActivity.this,"Thêm Sách Thành Công!",Toast.LENGTH_SHORT).show();
                         openActivity(HomeActivity.class);
@@ -123,9 +129,7 @@ public class Them_SachActivity extends BaseActivity {
             case R.id.sachbanchay:
                 openActivity(Top_Ban_ChayActivity.class);
                 break;
-            case R.id.laylaimatkhau:
-                openActivity(QuenMatKhau1Activity.class);
-                break;
+
             case R.id.hoadonban:
                 openActivity(Hoa_Don_BanActivity.class);
                 break;

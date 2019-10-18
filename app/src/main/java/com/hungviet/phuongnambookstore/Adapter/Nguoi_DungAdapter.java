@@ -2,19 +2,25 @@ package com.hungviet.phuongnambookstore.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_BanActivity;
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_Ban_Dao;
 import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
+import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.Thong_Tin_Nguoi_DungActivity;
 import com.hungviet.phuongnambookstore.R;
+import com.hungviet.phuongnambookstore.model.Hoa_Don_Ban;
 import com.hungviet.phuongnambookstore.model.Person;
 
 import java.util.List;
@@ -24,6 +30,8 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
     private List<Person> personList;
     private Context context;
     private NguoiDungDao nguoiDungDao;
+    Person person;
+    AlertDialog alertDialog;
 
     public Nguoi_DungAdapter(List<Person> personList, Context context) {
         this.personList = personList;
@@ -56,6 +64,7 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                 builder.setView(dialog);
 
                 ok=dialog.findViewById(R.id.btnallow);
+                cancel=dialog.findViewById(R.id.btncancel);
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -63,12 +72,19 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                         nguoiDungDao.deleteUser(personList.get(position).sdt);
                         notifyDataSetChanged();
                         personList.remove(position);
+                        alertDialog.dismiss();
 
+                    }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
                     }
                 });
 
                 builder.create();
-                builder.show();
+                alertDialog=builder.show();
             }
         });
         holder.custom.setOnClickListener(new View.OnClickListener() {
@@ -77,18 +93,79 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 View dialog  = LayoutInflater.from(context).inflate(R.layout.sua_nguoi_dung,null);
                 builder.setView(dialog);
-                TextInputEditText email,hoten,matkhau;
+                final TextInputEditText email,hoten,matkhau,sdt,manguoidung;
+                final Button oki,cen;
+                oki =dialog.findViewById(R.id.ok_nguoidung);
+                cen=dialog.findViewById(R.id.cen_nguoidung);
+
+
                 email=dialog.findViewById(R.id.email_nguoidung);
                 hoten=dialog.findViewById(R.id.hoten_nguoidung);
                 matkhau=dialog.findViewById(R.id.matkhau_nguoidung);
+                manguoidung=dialog.findViewById(R.id.ma_nguoidung);
+                sdt=dialog.findViewById(R.id.sdt_nguoidung);
+
+                manguoidung.setText(personList.get(position).getManguoidung());
+
+                oki.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
 
-//                nguoiDungDao=new NguoiDungDao(context);
-//
-//                nguoiDungDao.updateUser();
+
+                        String theloai = email.getText().toString().trim();
+                        String tensach = hoten.getText().toString().trim();
+                        String soluong = matkhau.getText().toString().trim();
+                        String gianhap = sdt.getText().toString().trim();
+                        String ngaynhap = manguoidung.getText().toString().trim();
+
+
+
+
+
+                        if (theloai.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (tensach.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (ngaynhap.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (gianhap.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (soluong.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else {
+
+                            person =new Person();
+                            nguoiDungDao = new NguoiDungDao(context);
+
+
+                            person.setEmail(email.getText().toString().trim());
+                            person.setHoten(hoten.getText().toString().trim());
+                            person.setMatkhau(matkhau.getText().toString().trim());
+                            person.setSdt(sdt.getText().toString().trim());
+                            person.setManguoidung(manguoidung.getText().toString().trim());
+
+
+
+                            long resurt = nguoiDungDao.updateUser(person);
+                            if(resurt>0){
+                                Toast.makeText(context,"Update Thành Công!",Toast.LENGTH_SHORT).show();
+                                alertDialog.dismiss();
+                                Intent intent
+                                        =new Intent(context, Thong_Tin_Nguoi_DungActivity.class);
+                                context.startActivity(intent);
+
+                            }else {
+                                Toast.makeText(context,"Update Thất Bại!",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+
+
 
                 builder.create();
-                builder.show();
+                alertDialog=builder.show();
             }
         });
 

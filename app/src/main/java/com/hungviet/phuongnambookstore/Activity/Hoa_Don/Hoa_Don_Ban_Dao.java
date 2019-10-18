@@ -73,6 +73,7 @@ public class Hoa_Don_Ban_Dao {
         contentValues.put(THELOAI, hoa_don_ban.getTheloai());
         contentValues.put(TENSACH, hoa_don_ban.getTensach());
         contentValues.put(GIABAN, hoa_don_ban.getGiaban());
+        contentValues.put(NGAYBAN, hoa_don_ban.getNgayban());
         contentValues.put(SOLUONGBAN,hoa_don_ban.getSoluongban());
         contentValues.put(MAHOADONBAN,hoa_don_ban.getMahoadonban());
 
@@ -89,10 +90,11 @@ public class Hoa_Don_Ban_Dao {
         contentValues.put(THELOAI, hoa_don_ban.getTheloai());
         contentValues.put(TENSACH, hoa_don_ban.getTensach());
         contentValues.put(GIABAN, hoa_don_ban.getGiaban());
+        contentValues.put(NGAYBAN, hoa_don_ban.getNgayban());
         contentValues.put(SOLUONGBAN,hoa_don_ban.getSoluongban());
         contentValues.put(MAHOADONBAN,hoa_don_ban.getMahoadonban());
 
-        long result = sqLiteDatabase.update(USER_TABLE,contentValues, TENSACH + "=?", new String[]{hoa_don_ban.getMahoadonban()});
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, MAHOADONBAN + "=?", new String[]{hoa_don_ban.getMahoadonban()});
         sqLiteDatabase.close();
         return result;
     }

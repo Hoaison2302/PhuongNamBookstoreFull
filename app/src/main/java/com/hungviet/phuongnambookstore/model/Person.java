@@ -1,9 +1,8 @@
 package com.hungviet.phuongnambookstore.model;
 
 public class Person {
-    public String sdt,email,hoten,matkhau;
+    public String sdt,email,hoten,matkhau,manguoidung;
     public int kechan,custom,thucrac;
-
 
     public String getSdt() {
         return sdt;
@@ -35,6 +34,14 @@ public class Person {
 
     public void setMatkhau(String matkhau) {
         this.matkhau = matkhau;
+    }
+
+    public String getManguoidung() {
+        return manguoidung;
+    }
+
+    public void setManguoidung(String manguoidung) {
+        this.manguoidung = manguoidung;
     }
 
     public int getKechan() {

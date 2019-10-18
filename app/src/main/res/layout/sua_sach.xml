@@ -18,15 +18,34 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/email_nguoidung"
+                android:id="@+id/edttensach_sach"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Tên Sách" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/edttacgia_sach"
+                            android:layout_height="wrap_content"
+                            android:hint="Tác Giả" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
@@ -37,10 +56,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-
-                        android:id="@+id/hoten_nguoidung"
+                        android:id="@+id/edtgia_sach"
                         android:layout_height="wrap_content"
-                        android:hint="Họ tên" />
+                        android:hint="Giá" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -48,31 +66,19 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
-
-                            android:id="@+id/matkhau_nguoidung"
+                            android:id="@+id/edtluotxem_sach"
                             android:layout_height="wrap_content"
-                            android:hint="Mật khẩu" />
+                            android:hint="Lượt xem" />
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
-
-                                android:id="@+id/sdt_nguoidung"
                                 android:layout_height="wrap_content"
-                                android:hint="Số Điện Thoại" />
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:id="@+id/edtmasach_sach"
+                                android:hint="Mã Sách" />
 
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:layout_width="match_parent"
-
-                                    android:id="@+id/ma_nguoidung"
-                                    android:layout_height="wrap_content"
-                                    android:hint="Mã Người Dùng" />
-                            </com.google.android.material.textfield.TextInputLayout>
                         </com.google.android.material.textfield.TextInputLayout>
                     </com.google.android.material.textfield.TextInputLayout>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -81,23 +87,25 @@
 
         </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btncancel_sach"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
 
-    <Button
-        android:layout_width="85dp"
-        android:layout_height="35dp"
-        android:id="@+id/cen_nguoidung"
-        android:layout_marginLeft="170dp"
-        android:text="Cancel" />
-    <Button
-        android:text="Ok"
-        android:id="@+id/ok_nguoidung"
-        android:layout_width="65dp"
-        android:layout_height="35dp"/>
+            android:layout_marginLeft="170dp"
+            android:text="Cancel" />
+        <Button
+            android:id="@+id/btnok_sach"
+            android:text="Ok"
+            android:layout_width="65dp"
+            android:layout_height="35dp"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+
 </LinearLayout>

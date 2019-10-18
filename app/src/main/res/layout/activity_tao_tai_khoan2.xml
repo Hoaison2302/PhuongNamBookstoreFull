@@ -20,7 +20,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:id="@+id/sdt"
+            android:id="@+id/sdt_n"
             android:layout_height="70dp"
             android:hint="Số điện thoại" />
 
@@ -34,7 +34,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:id="@+id/email"
+                android:id="@+id/email_n"
                 android:hint="Email" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +45,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:id="@+id/hoten"
+                    android:id="@+id/hoten_n"
                     android:layout_height="70dp"
                     android:hint="Họ tên" />
 
@@ -57,10 +57,22 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:id="@+id/matkhau"
+                        android:id="@+id/matkhau_n"
                         android:inputType="textPassword"
                         android:layout_height="70dp"
                         android:hint="Mật khẩu" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/manguoidung_n"
+                        android:layout_height="70dp"
+                        android:hint="mã Người DÙng" />
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>

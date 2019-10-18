@@ -51,9 +51,7 @@ public class Thong_tinActivity extends BaseActivity {
             case R.id.sachbanchay:
                 openActivity(Top_Ban_ChayActivity.class);
                 break;
-            case R.id.laylaimatkhau:
-                openActivity(QuenMatKhau1Activity.class);
-                break;
+
             case R.id.hoadonban:
                 openActivity(Hoa_Don_BanActivity.class);
                 break;

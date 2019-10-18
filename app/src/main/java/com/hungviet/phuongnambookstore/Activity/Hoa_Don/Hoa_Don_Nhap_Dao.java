@@ -74,6 +74,7 @@ public class Hoa_Don_Nhap_Dao {
         contentValues.put(TENSACH, hoa_don_nhap.getTensach());
         contentValues.put(NGAYNHAP, hoa_don_nhap.getNgaynhap());
         contentValues.put(SOLUONG,hoa_don_nhap.getSoluong());
+        contentValues.put(GIANHAP,hoa_don_nhap.getGianhap());
         contentValues.put(MAHOADONNHAP,hoa_don_nhap.getMahoadonnhap());
 
 
@@ -89,10 +90,11 @@ public class Hoa_Don_Nhap_Dao {
         contentValues.put(THELOAI, hoa_don_nhap.getTheloai());
         contentValues.put(TENSACH, hoa_don_nhap.getTensach());
         contentValues.put(NGAYNHAP, hoa_don_nhap.getNgaynhap());
+        contentValues.put(GIANHAP,hoa_don_nhap.getGianhap());
         contentValues.put(SOLUONG,hoa_don_nhap.getSoluong());
         contentValues.put(MAHOADONNHAP,hoa_don_nhap.getMahoadonnhap());
 
-        long result = sqLiteDatabase.update(USER_TABLE,contentValues, TENSACH + "=?", new String[]{hoa_don_nhap.getMahoadonnhap()});
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, MAHOADONNHAP + "=?", new String[]{hoa_don_nhap.getMahoadonnhap()});
         sqLiteDatabase.close();
         return result;
     }

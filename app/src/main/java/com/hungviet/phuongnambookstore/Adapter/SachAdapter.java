@@ -1,6 +1,7 @@
 package com.hungviet.phuongnambookstore.Adapter;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -16,19 +18,25 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_Nhap_Dao;
 import com.hungviet.phuongnambookstore.Activity.Sach.SachDao;
 import com.hungviet.phuongnambookstore.Activity.Sach.Sua_SachActivity;
 import com.hungviet.phuongnambookstore.Activity.Thong_Tin_Nguoi_Dung.NguoiDungDao;
 import com.hungviet.phuongnambookstore.R;
+import com.hungviet.phuongnambookstore.model.Hoa_Don_Nhap;
 import com.hungviet.phuongnambookstore.model.Sach.Sach;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     private List<Sach> sachList;
     private Context context;
+    private  Sach sachhhhh;
     SachDao sachDao;
+    AlertDialog alertDialog;
 
 
     public SachAdapter(List<Sach> sachList, Context context) {
@@ -46,10 +54,10 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final SachHolder holder, final int position) {
-        holder.tvten.setText(sachList.get(position).ten);
-        holder.tvtacgia.setText(sachList.get(position).tacgia);
-        holder.tvgia.setText(String.valueOf(sachList.get(position).getGia()));
-        holder.tvluotxem.setText(String.valueOf(sachList.get(position).getLuotxem()));
+        holder.tvten.setText(sachList.get(position).getTen());
+        holder.tvtacgia.setText(sachList.get(position).getTacgia());
+        holder.tvgia.setText(sachList.get(position).getGia());
+        holder.tvluotxem.setText(sachList.get(position).getLuotxem());
 
 
 
@@ -71,6 +79,7 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                                 builder.setView(dialog);
 
                                 ok=dialog.findViewById(R.id.btnallow);
+                                cancel=dialog.findViewById(R.id.btncancel);
                                 ok.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -80,25 +89,22 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
                                         sachDao.deleteUser(sachList.get(position).ten);
                                         notifyDataSetChanged();
                                         sachList.remove(position);
+                                        alertDialog.dismiss();
 
                                     }
                                 });
 
                                 builder.create();
-                                builder.show();
+                                alertDialog=builder.show();
 
-//                            cancel.setOnClickListener(new View.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(View v) {
-//                                        Toast.makeText(context,"Không Xóa!",Toast.LENGTH_SHORT).show();
-//                                    }
-//                                });
+                            cancel.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    alertDialog.dismiss();
+                                }
+                            });
                                 break;
 
-                            case R.id.pocup_sua:
-                                Intent intent = new Intent(context, Sua_SachActivity.class);
-                                context.startActivity(intent);
-                                break;
 
 
                         }
@@ -113,8 +119,90 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
 
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                View dialog1  = LayoutInflater.from(context).inflate(R.layout.sua_sach,null);
+                builder1.setView(dialog1);
 
 
+
+
+                final TextInputEditText edttensach_sach,edttacgia_sach,edtgia_sach,edtluotxem_sach,edtmasach_sach;
+                final Button ok1,cancel1;
+                ok1=dialog1.findViewById(R.id.btnok_sach);
+
+
+
+                edttensach_sach=dialog1.findViewById(R.id.edttensach_sach);
+                edttacgia_sach=dialog1.findViewById(R.id.edttacgia_sach);
+                edtgia_sach=dialog1.findViewById(R.id.edtgia_sach);
+                edtluotxem_sach=dialog1.findViewById(R.id.edtluotxem_sach);
+                edtmasach_sach=dialog1.findViewById(R.id.edtmasach_sach);
+
+
+
+                edtmasach_sach.setText(sachList.get(position).getMasach());
+
+
+                ok1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+
+                        String theloai = edttensach_sach.getText().toString().trim();
+                        String tensach = edttacgia_sach.getText().toString().trim();
+                        String soluong = edtgia_sach.getText().toString().trim();
+                        String gianhap = edtluotxem_sach.getText().toString().trim();
+                        String ngaynhap = edtmasach_sach.getText().toString().trim();
+
+
+
+
+
+                        if (theloai.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (tensach.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (soluong.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (gianhap.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (ngaynhap.equals("")){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else {
+
+
+                            sachhhhh =new Sach();
+
+                            sachhhhh.setTen(edttensach_sach.getText().toString().trim());
+                            sachhhhh.setTacgia(edttacgia_sach.getText().toString().trim());
+                            sachhhhh.setGia(edtgia_sach.getText().toString().trim());
+                            sachhhhh.setLuotxem(edtluotxem_sach.getText().toString().trim());
+                            sachhhhh.setMasach(edtmasach_sach.getText().toString().trim());
+
+
+
+                            long resurt = sachDao.updateUser(sachhhhh);
+                            if(resurt>0){
+                                Toast.makeText(context,"Update Thành Công!",Toast.LENGTH_SHORT).show();
+
+                            }else {
+                                Toast.makeText(context,"Update Thất Bại!",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+
+
+
+                builder1.create();
+                builder1.show();
+                return false;
+            }
+        });
 
 
     }

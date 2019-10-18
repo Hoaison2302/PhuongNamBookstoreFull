@@ -23,6 +23,7 @@ public class SachDao {
     public String TACGIASACH = "tacgiasach";
     public String GIA = "gia";
     public String LUOTXEM = "luotxem";
+    public String MASACH = "masach";
 
 
 
@@ -45,8 +46,9 @@ public class SachDao {
 
                     sach.setTen(cursor.getString(cursor.getColumnIndex(TENSACH)));
                     sach.setTacgia(cursor.getString(cursor.getColumnIndex(TACGIASACH)));
-                    sach.setGia(cursor.getInt(cursor.getColumnIndex(GIA)));
-                    sach.setLuotxem(cursor.getInt(cursor.getColumnIndex(LUOTXEM)));
+                    sach.setGia(cursor.getString(cursor.getColumnIndex(GIA)));
+                    sach.setLuotxem(cursor.getString(cursor.getColumnIndex(LUOTXEM)));
+                    sach.setMasach(cursor.getString(cursor.getColumnIndex(MASACH)));
 
 
                     sachList.add(sach);
@@ -68,6 +70,7 @@ public class SachDao {
         contentValues.put(TACGIASACH, sach.getTacgia());
         contentValues.put(GIA, sach.getGia());
         contentValues.put(LUOTXEM,sach.getLuotxem());
+        contentValues.put(MASACH,sach.getMasach());
 
 
         long result = sqLiteDatabase.insert(USER_TABLE, null, contentValues);
@@ -83,15 +86,15 @@ public class SachDao {
         contentValues.put(TACGIASACH, sach.getTacgia());
         contentValues.put(GIA, sach.getGia());
         contentValues.put(LUOTXEM,sach.getLuotxem());
-
-        long result = sqLiteDatabase.update(USER_TABLE,contentValues, TENSACH + "=?", new String[]{sach.getTen()});
+        contentValues.put(MASACH,sach.getMasach());
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, MASACH + "=?", new String[]{sach.getMasach()});
         sqLiteDatabase.close();
         return result;
     }
     public void deleteUser(String id) {
         SQLiteDatabase sqLiteDatabase = nguoidungSqlite.getWritableDatabase();
 
-        sqLiteDatabase.delete(USER_TABLE, TENSACH + "=?", new String[]{id});
+        sqLiteDatabase.delete(USER_TABLE, MASACH + "=?", new String[]{id});
 
     }
 }

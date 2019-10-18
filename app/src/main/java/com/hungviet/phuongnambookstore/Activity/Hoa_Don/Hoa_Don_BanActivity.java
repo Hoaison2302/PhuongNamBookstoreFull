@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class Hoa_Don_BanActivity extends BaseActivity {
     private Hoa_Don_Ban hoa_don_ban;
     private Hoa_Don_Ban_Dao hoa_don_ban_dao;
     private RecyclerView recyclerView;
+    AlertDialog alertDialog;
     private FloatingActionButton floatingActionButton;
 
     @Override
@@ -59,7 +61,6 @@ public class Hoa_Don_BanActivity extends BaseActivity {
         hoa_don_banList=hoa_don_ban_dao.getAll();
 
         hoa_don_banAdapter = new Hoa_Don_BanAdapter(hoa_don_banList,this);
-        hoa_don_banAdapter.notifyDataSetChanged();
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(hoa_don_banAdapter);
@@ -70,24 +71,24 @@ public class Hoa_Don_BanActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Hoa_Don_BanActivity.this);
-                View dialog  = LayoutInflater.from(Hoa_Don_BanActivity.this).inflate(R.layout.them_hoa_don_nhap,null);
+                View dialog  = LayoutInflater.from(Hoa_Don_BanActivity.this).inflate(R.layout.them_hoa_don_ban,null);
                 builder.setView(dialog);
 
 
                 ImageView btnngay;
 
-                final TextInputEditText edttheloai,edttensach,edtgia,edtsoluong,edtmasach,edtngay;
+                final TextInputEditText edttheloai,edttensach,edtgia,edtsoluong,edtmasach,edtngayy;
                 final Button ok,cancel;
-                edtngay=dialog.findViewById(R.id.edtngay);
-                btnngay=dialog.findViewById(R.id.btnngay);
-                ok=dialog.findViewById(R.id.btnok);
-                cancel=dialog.findViewById(R.id.btncancel);
+                edtngayy=dialog.findViewById(R.id.edtngayi);
+                btnngay=dialog.findViewById(R.id.btnngayi);
+                ok=dialog.findViewById(R.id.btnoki);
+                cancel=dialog.findViewById(R.id.btncanceli);
 
-                edttheloai=dialog.findViewById(R.id.edttheloai);
-                edttensach=dialog.findViewById(R.id.edttensach);
-                edtgia=dialog.findViewById(R.id.edtgia);
-                edtsoluong=dialog.findViewById(R.id.edtsoluong);
-                edtmasach=dialog.findViewById(R.id.edtmasach);
+                edttheloai=dialog.findViewById(R.id.edttheloaii);
+                edttensach=dialog.findViewById(R.id.edttensachi);
+                edtgia=dialog.findViewById(R.id.edtgiai);
+                edtsoluong=dialog.findViewById(R.id.edtsoluongi);
+                edtmasach=dialog.findViewById(R.id.edtmasachi);
 
                 btnngay.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -99,11 +100,17 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                         DatePickerDialog dialog=new DatePickerDialog(Hoa_Don_BanActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                edtngay.setText(view.getDayOfMonth()+"/"+(view.getMonth()+1)+"/"+view.getYear());
+                                edtngayy.setText(view.getDayOfMonth()+"/"+(view.getMonth()+1)+"/"+view.getYear());
 
                             }
                         },nam,thang,ngay);
                         dialog.show();
+                    }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
                     }
                 });
 
@@ -118,22 +125,24 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                         hoa_don_ban.setTheloai(edttheloai.getText().toString().trim());
                         hoa_don_ban.setTensach(edttensach.getText().toString().trim());
                         hoa_don_ban.setSoluongban(edtsoluong.getText().toString().trim());
-                        hoa_don_ban.setGiaban(edtgia.getText().toString().trim());
-                        hoa_don_ban.setNgayban(edtngay.getText().toString().trim());
+                        hoa_don_ban.setNgayban(edtngayy.getText().toString());
                         hoa_don_ban.setMahoadonban(edtmasach.getText().toString().trim());
+                        hoa_don_ban.setGiaban(edtgia.getText().toString().trim());
 
 
                         long resurt = hoa_don_ban_dao.insertUser(hoa_don_ban);
 
                         if(resurt>0){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Thêm dc",Toast.LENGTH_SHORT).show();
-                            StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
-                            recyclerView.setLayoutManager(gridLayoutManager);
-                            recyclerView.setAdapter(hoa_don_banAdapter);
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Thêm Thành Công!",Toast.LENGTH_SHORT).show();
 
-                            hoa_don_banAdapter.notifyDataSetChanged();
+
+                            Intent intent
+                                    =new Intent(Hoa_Don_BanActivity.this,Hoa_Don_BanActivity.class
+                            );startActivity(intent);
+                            alertDialog.dismiss();
                         }else {
                             Toast.makeText(Hoa_Don_BanActivity.this,"Thêm 0 dc",Toast.LENGTH_SHORT).show();
+                            alertDialog.dismiss();
                         }
                     }
                 });
@@ -141,7 +150,7 @@ public class Hoa_Don_BanActivity extends BaseActivity {
 
 
                 builder.create();
-                builder.show();
+                alertDialog=builder.show();
             }
         });
     }
@@ -167,9 +176,7 @@ public class Hoa_Don_BanActivity extends BaseActivity {
             case R.id.sachbanchay:
                 openActivity(Top_Ban_ChayActivity.class);
                 break;
-            case R.id.laylaimatkhau:
-                openActivity(QuenMatKhau1Activity.class);
-                break;
+
             case R.id.hoadonban:
                 openActivity(Hoa_Don_BanActivity.class);
                 break;

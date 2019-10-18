@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -47,6 +48,7 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
     private Hoa_Don_Nhap_Dao hoa_don_nhap_dao;
     private RecyclerView recyclerView;
     private Hoa_Don_Nhap hoa_don_nhap;
+    AlertDialog alertDialog;
     FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,17 +138,17 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
 
 
                         if (theloai.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Không Để Trống Thông Tin!!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Tác Giả!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else if (soluong.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Giá Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"VVui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else if (gianhap.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Lượt Xem Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else if (ngaynhap.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Lượt Xem Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else if (mahoadonnhap.equals("")){
-                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Nhập Lượt Xem Và Không Kèm Ký Tự Đặc Biệt!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_NhapActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
                         }else {
                             hoa_don_nhap_dao =new Hoa_Don_Nhap_Dao(Hoa_Don_NhapActivity.this);
 
@@ -162,11 +164,15 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
 
                             long resurt = hoa_don_nhap_dao.insertUser(hoa_don_nhap);
                             if(resurt>0){
-                                Toast.makeText(Hoa_Don_NhapActivity.this,"Thêm dc",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Hoa_Don_NhapActivity.this,"Thêm Thành Công!",Toast.LENGTH_SHORT).show();
+                                alertDialog.dismiss();
+                                Intent intent
+                                        =new Intent(Hoa_Don_NhapActivity.this,Hoa_Don_NhapActivity.class);
+                                startActivity(intent);
 
                                 hoa_Don_NhapAdapter.notifyDataSetChanged();
                             }else {
-                                Toast.makeText(Hoa_Don_NhapActivity.this,"Thêm 0 dc",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Hoa_Don_NhapActivity.this,"Thêm Thất Bại",Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -175,7 +181,7 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
 
 
                 builder.create();
-                builder.show();
+                alertDialog=builder.show();
             }
         });
     }
@@ -201,9 +207,7 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
             case R.id.sachbanchay:
                 openActivity(Top_Ban_ChayActivity.class);
                 break;
-            case R.id.laylaimatkhau:
-                openActivity(QuenMatKhau1Activity.class);
-                break;
+
             case R.id.hoadonban:
                 openActivity(Hoa_Don_BanActivity.class);
                 break;

@@ -25,6 +25,7 @@ public class NguoiDungDao {
     public String EMAIL = "email";
     public String HOTEN = "hoten";
     public String MATKHAU = "matkhau";
+    public String MANGUOIDUNG = "manguoidung";
 
 
 
@@ -49,6 +50,7 @@ public class NguoiDungDao {
                     person.setEmail(cursor.getString(cursor.getColumnIndex(EMAIL)));
                     person.setHoten(cursor.getString(cursor.getColumnIndex(HOTEN)));
                     person.setMatkhau(cursor.getString(cursor.getColumnIndex(MATKHAU)));
+                    person.setManguoidung(cursor.getString(cursor.getColumnIndex(MANGUOIDUNG)));
 
 
                     personList.add(person);
@@ -70,6 +72,7 @@ public class NguoiDungDao {
         contentValues.put(EMAIL, person.getEmail());
         contentValues.put(HOTEN, person.getHoten());
         contentValues.put(MATKHAU,person.getMatkhau());
+        contentValues.put(MANGUOIDUNG,person.getManguoidung());
 
 
         long result = sqLiteDatabase.insert(USER_TABLE, null, contentValues);
@@ -85,15 +88,16 @@ public class NguoiDungDao {
         contentValues.put(EMAIL, person.getEmail());
         contentValues.put(HOTEN, person.getHoten());
         contentValues.put(MATKHAU,person.getMatkhau());
+        contentValues.put(MANGUOIDUNG,person.getManguoidung());
 
-        long result = sqLiteDatabase.update(USER_TABLE,contentValues, SDT + "=?", new String[]{person.getSdt()});
+        long result = sqLiteDatabase.update(USER_TABLE,contentValues, MANGUOIDUNG + "=?", new String[]{person.getManguoidung()});
         sqLiteDatabase.close();
         return result;
     }
     public void deleteUser(String id) {
         SQLiteDatabase sqLiteDatabase = nguoidungSqlite.getWritableDatabase();
 
-        sqLiteDatabase.delete(USER_TABLE, SDT + "=?", new String[]{id});
+        sqLiteDatabase.delete(USER_TABLE, MANGUOIDUNG + "=?", new String[]{id});
 
     }
 }

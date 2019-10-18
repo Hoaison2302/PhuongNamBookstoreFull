@@ -15,7 +15,7 @@ import com.hungviet.phuongnambookstore.model.Person;
 import java.util.List;
 
 public class TaoTaiKhoan2Activity extends BaseActivity {
-    private TextInputEditText sdt,email,hoten,matkhau;
+    private TextInputEditText sdt,email,hoten,matkhau,manguoidung;
     private Person person;
     List<Person> personList;
     private NguoiDungDao nguoiDungDao;
@@ -25,10 +25,11 @@ public class TaoTaiKhoan2Activity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tao_tai_khoan2);
-        sdt=findViewById(R.id.sdt);
-        email=findViewById(R.id.email);
-        hoten=findViewById(R.id.hoten);
-        matkhau=findViewById(R.id.matkhau);
+        sdt=findViewById(R.id.sdt_n);
+        email=findViewById(R.id.email_n);
+        hoten=findViewById(R.id.hoten_n);
+        manguoidung=findViewById(R.id.manguoidung_n);
+        matkhau=findViewById(R.id.matkhau_n);
         Drawable drawable= getResources().getDrawable(R.drawable.close);
 //...
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -52,6 +53,7 @@ public class TaoTaiKhoan2Activity extends BaseActivity {
 
         person =new Person();
 
+        person.setManguoidung(manguoidung.getText().toString().trim());
         person.setSdt(sdt.getText().toString().trim());
         person.setEmail(email.getText().toString().trim());
         person.setHoten(hoten.getText().toString().trim());
