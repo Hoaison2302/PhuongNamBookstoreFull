@@ -118,6 +118,27 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                 ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        String theloai = edttheloai.getText().toString().trim();
+                        String tensach = edttensach.getText().toString().trim();
+                        String soluong = edtsoluong.getText().toString().trim();
+                        String gianhap = edtgia.getText().toString().trim();
+                        String ngaynhap = edtngayy.getText().toString().trim();
+                        String mahoadonnhap = edtmasach.getText().toString().trim();
+
+                        if (theloai.equals("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (tensach.equals("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
+                        }else if (ngaynhap.equals("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (soluong.equals("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (gianhap.equals("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else if (mahoadonnhap.equalsIgnoreCase("")){
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                        }else {
                         hoa_don_ban_dao =new Hoa_Don_Ban_Dao(Hoa_Don_BanActivity.this);
 
                         hoa_don_ban=new Hoa_Don_Ban();
@@ -143,7 +164,7 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                         }else {
                             Toast.makeText(Hoa_Don_BanActivity.this,"Thêm 0 dc",Toast.LENGTH_SHORT).show();
                             alertDialog.dismiss();
-                        }
+                        }}
                     }
                 });
 

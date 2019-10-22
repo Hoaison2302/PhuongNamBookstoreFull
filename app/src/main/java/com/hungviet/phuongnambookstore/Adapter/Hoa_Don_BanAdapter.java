@@ -98,9 +98,13 @@ public class Hoa_Don_BanAdapter extends RecyclerView.Adapter<Hoa_Don_BanAdapter.
 
                 final TextInputEditText edttheloai,edttensach,edtgia,edtsoluong,edtmasach,edtngay;
                 final Button ok,cancel;
+                final ImageView ngay;
+
                 edtngay=dialog.findViewById(R.id.edtngayi);
                 ok=dialog.findViewById(R.id.btnoki);
                 cancel=dialog.findViewById(R.id.btncanceli);
+
+
 
                 edttheloai=dialog.findViewById(R.id.edttheloaii);
                 edttensach=dialog.findViewById(R.id.edttensachi);
