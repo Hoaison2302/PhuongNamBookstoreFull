@@ -51,8 +51,8 @@ public class Hoa_Don_Nhap_Dao {
                     hoa_don_nhap.setTheloai(cursor.getString(cursor.getColumnIndex(THELOAI)));
                     hoa_don_nhap.setTensach(cursor.getString(cursor.getColumnIndex(TENSACH)));
                     hoa_don_nhap.setNgaynhap(cursor.getString(cursor.getColumnIndex(NGAYNHAP)));
-                    hoa_don_nhap.setGianhap(cursor.getString(cursor.getColumnIndex(GIANHAP)));
-                    hoa_don_nhap.setSoluong(cursor.getString(cursor.getColumnIndex(SOLUONG)));
+                    hoa_don_nhap.setGianhap(Integer.parseInt(cursor.getString(cursor.getColumnIndex(GIANHAP))));
+                    hoa_don_nhap.setSoluong(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SOLUONG))));
 
                     hoa_don_nhap.setMahoadonnhap(cursor.getString(cursor.getColumnIndex(MAHOADONNHAP)));
 

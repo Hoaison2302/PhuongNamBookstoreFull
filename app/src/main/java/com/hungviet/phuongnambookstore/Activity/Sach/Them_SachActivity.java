@@ -73,15 +73,15 @@ public class Them_SachActivity extends BaseActivity {
 
 
                 if (tensach.equalsIgnoreCase("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Tên Sách!",Toast.LENGTH_SHORT).show();
                 }else if (tacgia.equalsIgnoreCase("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Tác Giả!",Toast.LENGTH_SHORT).show();
                 }else if (gia.equalsIgnoreCase("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Giá!",Toast.LENGTH_SHORT).show();
                 }else if (luotxem.equalsIgnoreCase("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Tác Giả!",Toast.LENGTH_SHORT).show();
                 }else if (masachh.equalsIgnoreCase("")){
-                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Them_SachActivity.this,"Vui Lòng Không Để Trống Mã Sách!",Toast.LENGTH_SHORT).show();
                 }else {
                     sachlist1 = new Sach();
                     sachlist1.setTen(edttensach.getText().toString().trim());

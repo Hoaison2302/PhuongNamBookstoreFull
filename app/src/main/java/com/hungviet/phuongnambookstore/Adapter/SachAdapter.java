@@ -162,15 +162,15 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
                         if (theloai.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thể Loại!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Tên Sách!",Toast.LENGTH_SHORT).show();
                         }else if (soluong.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Số Lượng!",Toast.LENGTH_SHORT).show();
                         }else if (gianhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Giá!",Toast.LENGTH_SHORT).show();
                         }else if (ngaynhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Ngày Nhập!",Toast.LENGTH_SHORT).show();
                         }else {
 
 

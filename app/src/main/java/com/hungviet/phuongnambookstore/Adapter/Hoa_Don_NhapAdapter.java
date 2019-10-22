@@ -49,8 +49,8 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
     @Override
     public void onBindViewHolder(@NonNull final HoaDonHolder holder, final int position) {
         holder.tvtensach.setText(hoa_don_nhapList.get(position).getTensach());
-        holder.tvgianhap.setText(hoa_don_nhapList.get(position).getGianhap());
-        holder.tvsoluongnhap.setText(hoa_don_nhapList.get(position).getSoluong());
+        holder.tvgianhap.setText(String.valueOf(hoa_don_nhapList.get(position).getGianhap()+" $"));
+        holder.tvsoluongnhap.setText(String.valueOf(hoa_don_nhapList.get(position).getSoluong()+" Cuốn"));
         holder.tvtheloai.setText(hoa_don_nhapList.get(position).getTheloai());
         holder.tvngaynhap.setText(hoa_don_nhapList.get(position).getNgaynhap());
 
@@ -160,17 +160,17 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
 
 
                         if (theloai.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Thể Loại!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
                             Toast.makeText(context,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
                         }else if (ngaynhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Ngày!",Toast.LENGTH_SHORT).show();
                         }else if (soluong.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Số Lượng!",Toast.LENGTH_SHORT).show();
                         }else if (gianhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Giá!",Toast.LENGTH_SHORT).show();
                         }else if (mahoadonnhap.equalsIgnoreCase("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Mã Hóa Đơn!",Toast.LENGTH_SHORT).show();
                         }else {
 
                             hoa_don_nhap_dao =new Hoa_Don_Nhap_Dao(context);
@@ -179,22 +179,22 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
 
                             hoa_don_nhap1.setTheloai(edttheloai.getText().toString().trim());
                             hoa_don_nhap1.setTensach(edttensach.getText().toString().trim());
-                            hoa_don_nhap1.setSoluong(edtsoluong.getText().toString().trim());
-                            hoa_don_nhap1.setGianhap(edtgia.getText().toString().trim()+"");
+                            hoa_don_nhap1.setSoluong(Integer.parseInt(edtsoluong.getText().toString().trim()));
+                            hoa_don_nhap1.setGianhap(Integer.parseInt(edtgia.getText().toString().trim()+""));
                             hoa_don_nhap1.setNgaynhap(edtngay.getText().toString().trim());
                             hoa_don_nhap1.setMahoadonnhap(edtmasach.getText().toString().trim());
 
 
                             long resurt = hoa_don_nhap_dao.updateUser(hoa_don_nhap1);
                             if(resurt>0){
-                                Toast.makeText(context,"Sửa Thành Công",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Update Thành Công",Toast.LENGTH_SHORT).show();
 
                                 alertDialog.dismiss();
                                 Intent intent
                                         =new Intent(context,Hoa_Don_NhapActivity.class);
                                 context.startActivity(intent);
                             }else {
-                                Toast.makeText(context,"Sửa Thất Bại!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context,"Update Thất Bại!",Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

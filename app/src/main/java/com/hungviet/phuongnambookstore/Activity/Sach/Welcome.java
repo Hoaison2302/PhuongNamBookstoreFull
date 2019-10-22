@@ -18,7 +18,7 @@ import java.util.List;
 public class Welcome extends BaseActivity {
     private EditText edtuser,edtpass;
     private Person person;
-    List<Person> personList;
+    private List<Person> personList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class Welcome extends BaseActivity {
 
         String us = edtpass.getText().toString().trim();
         String pass = edtpass.getText().toString().trim();
-        if (us.equals("admin") && pass.equals("admin")){
+        if (us.equals("") && pass.equals("")){
             openActivity(HomeActivity.class);
             Toast.makeText(Welcome.this,"Login successfully!",Toast.LENGTH_SHORT).show();
         }else {

@@ -127,17 +127,17 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                         String mahoadonnhap = edtmasach.getText().toString().trim();
 
                         if (theloai.equals("")){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thể Loại!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
                             Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Nhập Tên Sách!",Toast.LENGTH_SHORT).show();
                         }else if (ngaynhap.equals("")){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Ngày!",Toast.LENGTH_SHORT).show();
                         }else if (soluong.equals("")){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Số Lượng!",Toast.LENGTH_SHORT).show();
                         }else if (gianhap.equals("")){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Giá!",Toast.LENGTH_SHORT).show();
                         }else if (mahoadonnhap.equalsIgnoreCase("")){
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Vui Lòng Không Để Trống Mã Hóa Đơn!",Toast.LENGTH_SHORT).show();
                         }else {
                         hoa_don_ban_dao =new Hoa_Don_Ban_Dao(Hoa_Don_BanActivity.this);
 
@@ -145,10 +145,10 @@ public class Hoa_Don_BanActivity extends BaseActivity {
 
                         hoa_don_ban.setTheloai(edttheloai.getText().toString().trim());
                         hoa_don_ban.setTensach(edttensach.getText().toString().trim());
-                        hoa_don_ban.setSoluongban(edtsoluong.getText().toString().trim());
+                        hoa_don_ban.setSoluongban(Integer.parseInt(edtsoluong.getText().toString().trim()));
                         hoa_don_ban.setNgayban(edtngayy.getText().toString());
                         hoa_don_ban.setMahoadonban(edtmasach.getText().toString().trim());
-                        hoa_don_ban.setGiaban(edtgia.getText().toString().trim());
+                        hoa_don_ban.setGiaban(Integer.parseInt(edtgia.getText().toString().trim()));
 
 
                         long resurt = hoa_don_ban_dao.insertUser(hoa_don_ban);
@@ -162,7 +162,7 @@ public class Hoa_Don_BanActivity extends BaseActivity {
                             );startActivity(intent);
                             alertDialog.dismiss();
                         }else {
-                            Toast.makeText(Hoa_Don_BanActivity.this,"Thêm 0 dc",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Hoa_Don_BanActivity.this,"Thêm Thất Bại",Toast.LENGTH_SHORT).show();
                             alertDialog.dismiss();
                         }}
                     }

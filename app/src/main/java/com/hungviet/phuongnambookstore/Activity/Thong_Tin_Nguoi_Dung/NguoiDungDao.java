@@ -46,7 +46,7 @@ public class NguoiDungDao {
 
                     Person person = new Person();
 
-                    person.setSdt(cursor.getString(cursor.getColumnIndex(SDT)));
+                    person.setSdt(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SDT))));
                     person.setEmail(cursor.getString(cursor.getColumnIndex(EMAIL)));
                     person.setHoten(cursor.getString(cursor.getColumnIndex(HOTEN)));
                     person.setMatkhau(cursor.getString(cursor.getColumnIndex(MATKHAU)));

@@ -1,14 +1,15 @@
 package com.hungviet.phuongnambookstore.model;
 
 public class Person {
-    public String sdt,email,hoten,matkhau,manguoidung;
-    public int kechan,custom,thucrac;
+    public String email,hoten,matkhau,manguoidung;
+    public int sdt,kechan,custom,thucrac;
 
-    public String getSdt() {
+
+    public int getSdt() {
         return sdt;
     }
 
-    public void setSdt(String sdt) {
+    public void setSdt(int sdt) {
         this.sdt = sdt;
     }
 

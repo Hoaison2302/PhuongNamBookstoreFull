@@ -156,8 +156,8 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
 
                             hoa_don_nhap.setTheloai(edttheloai.getText().toString().trim());
                             hoa_don_nhap.setTensach(edttensach.getText().toString().trim());
-                            hoa_don_nhap.setSoluong(edtsoluong.getText().toString().trim());
-                            hoa_don_nhap.setGianhap(edtgia.getText().toString().trim()+"");
+                            hoa_don_nhap.setSoluong(Integer.parseInt(edtsoluong.getText().toString().trim()));
+                            hoa_don_nhap.setGianhap(Integer.parseInt(edtgia.getText().toString().trim()+""));
                             hoa_don_nhap.setNgaynhap(edtngay.getText().toString().trim());
                             hoa_don_nhap.setMahoadonnhap(edtmasach.getText().toString().trim());
 
@@ -177,7 +177,6 @@ public class Hoa_Don_NhapActivity extends BaseActivity {
                         }
                     }
                 });
-
 
 
                 builder.create();

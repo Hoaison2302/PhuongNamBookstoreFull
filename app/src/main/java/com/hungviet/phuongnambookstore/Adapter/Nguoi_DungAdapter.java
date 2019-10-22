@@ -105,6 +105,10 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                 manguoidung=dialog.findViewById(R.id.ma_nguoidung);
                 sdt=dialog.findViewById(R.id.sdt_nguoidung);
 
+                email.setText(personList.get(position).getEmail());
+                hoten.setText(personList.get(position).getHoten());
+                matkhau.setText(personList.get(position).getMatkhau());
+                sdt.setText(String.valueOf(personList.get(position).getSdt()));
                 manguoidung.setText(personList.get(position).getManguoidung());
 
                 oki.setOnClickListener(new View.OnClickListener() {
@@ -124,15 +128,15 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
 
 
                         if (theloai.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Email!",Toast.LENGTH_SHORT).show();
                         }else if (tensach.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Họ Tên!",Toast.LENGTH_SHORT).show();
                         }else if (ngaynhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
-                        }else if (gianhap.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Mật Khẩu!",Toast.LENGTH_SHORT).show();
+                        }else if (gianhap.length()!=10){
+                            Toast.makeText(context,"Vui Lòng Không Để Trống và nhập đủ 10 Số Điện Thoại!",Toast.LENGTH_SHORT).show();
                         }else if (soluong.equals("")){
-                            Toast.makeText(context,"Vui Lòng Không Để Trống Thông Tin!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Vui Lòng Không Để Trống Số Lượng!",Toast.LENGTH_SHORT).show();
                         }else {
 
                             person =new Person();
@@ -142,7 +146,7 @@ public class Nguoi_DungAdapter extends RecyclerView.Adapter<Nguoi_DungAdapter.Ng
                             person.setEmail(email.getText().toString().trim());
                             person.setHoten(hoten.getText().toString().trim());
                             person.setMatkhau(matkhau.getText().toString().trim());
-                            person.setSdt(sdt.getText().toString().trim());
+                            person.setSdt(Integer.parseInt(sdt.getText().toString().trim()));
                             person.setManguoidung(manguoidung.getText().toString().trim());
 
 

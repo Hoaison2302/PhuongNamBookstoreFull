@@ -55,7 +55,7 @@ public class TaoTaiKhoan1 extends BaseActivity {
 
         person =new Person();
 
-        person.setSdt(sdt.getText().toString().trim());
+        person.setSdt(Integer.parseInt(sdt.getText().toString().trim()));
         person.setEmail(email.getText().toString().trim());
         person.setHoten(hoten.getText().toString().trim());
         person.setMatkhau(matkhau.getText().toString().trim());

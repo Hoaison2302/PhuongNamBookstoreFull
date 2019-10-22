@@ -51,8 +51,8 @@ public class Hoa_Don_BanAdapter extends RecyclerView.Adapter<Hoa_Don_BanAdapter.
     @Override
     public void onBindViewHolder(@NonNull Hoa_Don_BanAdapter.HoadonbanHolder holder, final int position) {
         holder.tvtensach.setText(hoa_don_banList.get(position).getTensach());
-        holder.tvgianhap.setText(hoa_don_banList.get(position).getGiaban());
-        holder.tvsoluongnhap.setText(hoa_don_banList.get(position).getSoluongban());
+        holder.tvgianhap.setText(String.valueOf(hoa_don_banList.get(position).getGiaban()+" $"));
+        holder.tvsoluongnhap.setText(String.valueOf(hoa_don_banList.get(position).getSoluongban()+" Cuốn"));
         holder.tvtheloai.setText(hoa_don_banList.get(position).getTheloai());
         holder.tvngaynhap.setText(hoa_don_banList.get(position).getNgayban());
 
@@ -112,6 +112,29 @@ public class Hoa_Don_BanAdapter extends RecyclerView.Adapter<Hoa_Don_BanAdapter.
                 edtsoluong=dialog.findViewById(R.id.edtsoluongi);
                 edtmasach=dialog.findViewById(R.id.edtmasachi);
 
+                edtngay.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Calendar calendar=Calendar.getInstance(); //khoi tao
+                        int nam=calendar.get(Calendar.YEAR);  //thiet lap ngay thang nam
+                        int thang=calendar.get(Calendar.MONTH);  //thiet lap ngay thang nam
+                        int ngay=calendar.get(Calendar.DAY_OF_MONTH);  //thiet lap ngay thang nam
+                        DatePickerDialog dialog=new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                edtngay.setText(view.getDayOfMonth()+"/"+(view.getMonth()+1)+"/"+view.getYear());
+
+                            }
+                        },nam,thang,ngay);
+                        dialog.show();
+                    }
+                });
+
+                edttheloai.setText(hoa_don_banList.get(position).getTheloai());
+                edttensach.setText(hoa_don_banList.get(position).getTensach());
+                edtngay.setText(hoa_don_banList.get(position).getNgayban());
+                edtgia.setText(String.valueOf(hoa_don_banList.get(position).getGiaban()));
+                edtsoluong.setText(String.valueOf(hoa_don_banList.get(position).getSoluongban()));
                 edtmasach.setText(hoa_don_banList.get(position).getMahoadonban());
 
 
@@ -150,8 +173,8 @@ public class Hoa_Don_BanAdapter extends RecyclerView.Adapter<Hoa_Don_BanAdapter.
 
                             hoa_don_ban.setTheloai(edttheloai.getText().toString().trim());
                             hoa_don_ban.setTensach(edttensach.getText().toString().trim());
-                            hoa_don_ban.setSoluongban(edtsoluong.getText().toString().trim());
-                            hoa_don_ban.setGiaban(edtgia.getText().toString().trim()+"");
+                            hoa_don_ban.setSoluongban(Integer.parseInt(edtsoluong.getText().toString().trim()));
+                            hoa_don_ban.setGiaban(Integer.parseInt(edtgia.getText().toString().trim()+""));
                             hoa_don_ban.setNgayban(edtngay.getText().toString().trim());
                             hoa_don_ban.setMahoadonban(edtmasach.getText().toString().trim());
 
