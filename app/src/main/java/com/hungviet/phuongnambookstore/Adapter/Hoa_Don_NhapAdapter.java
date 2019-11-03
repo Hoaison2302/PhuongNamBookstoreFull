@@ -121,6 +121,11 @@ public class Hoa_Don_NhapAdapter extends RecyclerView.Adapter<Hoa_Don_NhapAdapte
                 edtsoluong=dialog.findViewById(R.id.edtsoluong);
                 edtmasach=dialog.findViewById(R.id.edtmasach);
 
+                edttheloai.setText(hoa_don_nhapList.get(position).getTheloai());
+                edttensach.setText(hoa_don_nhapList.get(position).getTensach());
+                edtngay.setText(hoa_don_nhapList.get(position).getNgaynhap());
+                edtgia.setText(String.valueOf(hoa_don_nhapList.get(position).getGianhap()));
+                edtsoluong.setText(String.valueOf(hoa_don_nhapList.get(position).getSoluong()));
                 edtmasach.setText(hoa_don_nhapList.get(position).getMahoadonnhap());
 
 

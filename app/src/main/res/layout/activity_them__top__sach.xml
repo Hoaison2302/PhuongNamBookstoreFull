@@ -19,6 +19,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/theloai"
             android:layout_height="wrap_content"
             android:hint="Thêm thể loại" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -36,6 +37,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/tensach"
             android:layout_height="wrap_content"
             android:hint="Tên sách" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -52,8 +54,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/masach"
             android:layout_height="wrap_content"
-            android:hint="Tác giả" />
+            android:hint="Mã" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,8 +73,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/soluong"
             android:layout_height="wrap_content"
-            android:hint="Giá sách" />
+            android:hint="Số Lượng" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
@@ -106,8 +110,9 @@
         app:srcCompat="@drawable/folder" />
 
     <Button
+
         android:onClick="openActivityy"
-        android:id="@+id/button4"
+        android:id="@+id/xong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"

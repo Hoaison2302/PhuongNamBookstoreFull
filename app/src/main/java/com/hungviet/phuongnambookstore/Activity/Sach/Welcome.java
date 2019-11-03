@@ -50,7 +50,7 @@ public class Welcome extends BaseActivity {
 
         String us = edtpass.getText().toString().trim();
         String pass = edtpass.getText().toString().trim();
-        if (us.equals("") && pass.equals("")){
+        if (us.equals("admin") && pass.equals("admin")){
             openActivity(HomeActivity.class);
             Toast.makeText(Welcome.this,"Login successfully!",Toast.LENGTH_SHORT).show();
         }else {
@@ -58,9 +58,7 @@ public class Welcome extends BaseActivity {
         }
     }
 
-    public void Login_to_FaceBook(View view) {
-        openActivity(Login_to_facebookActivity.class);
-    }
+
 
 
 }

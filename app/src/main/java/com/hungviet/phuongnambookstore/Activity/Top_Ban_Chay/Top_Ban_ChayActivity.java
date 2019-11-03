@@ -36,12 +36,12 @@ public class Top_Ban_ChayActivity extends BaseActivity {
 
         topBanChayList =new ArrayList<>();
 
-        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
-        topBanChayList.add(new Top_Ban_Chay("Lối Sống Tối Giản Của Người Nhật","Thể loại: Kinh Doanh","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.loisongtoigian));
-        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
-        topBanChayList.add(new Top_Ban_Chay("Lối Sống Tối Giản Của Người Nhật","Thể loại: Kinh Doanh","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.loisongtoigian));
-        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
-        topBanChayList.add(new Top_Ban_Chay("Lối Sống Tối Giản Của Người Nhật","Thể loại: Kinh Doanh","Giá bán: ̣́890 $",R.drawable.luachon,R.drawable.loisongtoigian));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
+        topBanChayList.add(new Top_Ban_Chay("Nghệ Thuật Đàm Phán","Thể loại: Kỹ năng nói chuyện","Giá bán: 890 $",R.drawable.luachon,R.drawable.nghethuatdamphan));
 
 
 

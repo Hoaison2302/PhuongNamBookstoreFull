@@ -44,6 +44,9 @@ public class Top_Ban_ChayAdapter extends RecyclerView.Adapter<Top_Ban_ChayAdapte
         holder.ivluachon.setImageResource(topBanChayList.get(position).luachon);
         holder.ivanh.setImageResource(topBanChayList.get(position).anh);
 
+
+
+
     }
 
     @Override

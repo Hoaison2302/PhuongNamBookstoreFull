@@ -14,6 +14,7 @@
         android:padding="-16dp"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="19dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:layout_marginRight="16dp"
         android:layout_width="330dp"
@@ -23,6 +24,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         app:counterEnabled="true"
         app:counterMaxLength="50">
 
@@ -81,17 +83,9 @@
             android:layout_alignParentLeft="true"
             style="@style/btndo"
             android:text="LoGin"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="33dp"/>
 
-        <Button
-            android:onClick="Login_to_FaceBook"
-            android:background="@drawable/botronxanh"
-            android:layout_alignParentRight="true"
-            style="@style/btnxanh"
-            android:text="login to FaceBook"
-            android:layout_width="160dp"
-            android:layout_height="33dp"/>
 
     </RelativeLayout>
     <LinearLayout

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Create_Accout.TaoTaiKhoan1"></activity>
+        <activity
+            android:parentActivityName=".Activity.Sach.Welcome"
+            android:name=".Activity.Create_Accout.TaoTaiKhoan1"></activity>
         <activity
             android:name=".Activity.Sach.Sua_SachActivity"
             android:label="Nhà sách Phương Nam"

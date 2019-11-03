@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -35,15 +36,17 @@ import java.util.List;
 
 public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
     private List<Sach> sachList;
+    private List<Sach> sachListfill;
     private Context context;
     private  Sach sachhhhh;
     SachDao sachDao;
     AlertDialog alertDialog;
 
 
-    public SachAdapter(List<Sach> sachList, Context context) {
+    public SachAdapter(List<Sach> sachList, Context context,List<Sach> sachListfill) {
         this.sachList = sachList;
         this.context = context;
+        this.sachListfill = sachListfill;
     }
 
     @NonNull
@@ -145,7 +148,12 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
 
 
 
+                edttensach_sach.setText(sachList.get(position).getTen());
+                edttacgia_sach.setText(sachList.get(position).getTacgia());
+                edtgia_sach.setText(sachList.get(position).getGia());
+                edtluotxem_sach.setText(sachList.get(position).getLuotxem());
                 edtmasach_sach.setText(sachList.get(position).getMasach());
+
 
 
                 ok1.setOnClickListener(new View.OnClickListener() {
@@ -234,4 +242,37 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.SachHolder> {
             luachon = itemView.findViewById(R.id.tvluachon);
         }
     }
+    public Filter getFilter() {
+        return qLnguoidungFilter;
+    }
+
+    private Filter qLnguoidungFilter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Sach> filteredlist=new ArrayList<>();
+
+            if(constraint ==null || constraint.length()==0){
+                filteredlist.addAll(sachListfill);
+            }else {
+                String filterPattern=constraint.toString().toLowerCase().trim();
+                for (Sach item: sachListfill){
+                    if (item.ten.toLowerCase().contains(filterPattern)){
+                        filteredlist.add(item);
+                    }
+                }
+
+            }
+
+            FilterResults results=new FilterResults();
+            results.values=filteredlist;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            sachList.clear();
+            sachList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

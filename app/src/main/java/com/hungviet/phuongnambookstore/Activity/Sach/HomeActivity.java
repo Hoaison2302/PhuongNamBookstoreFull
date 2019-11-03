@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.hungviet.phuongnambookstore.Activity.Hoa_Don.Hoa_Don_BanActivity;
@@ -30,6 +32,7 @@ import java.util.List;
 public class HomeActivity extends BaseActivity {
 
     private List<Sach> sachList;
+    private List<Sach> sachListful;
     private SachAdapter sachAdapter;
     private RecyclerView recyclerView;
     private ImageView imageView;
@@ -46,6 +49,7 @@ public class HomeActivity extends BaseActivity {
 
         sachDao=new SachDao(this);
         sachList=sachDao.getAll();
+        sachListful=sachDao.getAll();
 
         Drawable drawable= getResources().getDrawable(R.drawable.pri);
 //...
@@ -53,7 +57,7 @@ public class HomeActivity extends BaseActivity {
         getSupportActionBar().setHomeAsUpIndicator(drawable);
 
 
-        sachAdapter = new SachAdapter(sachList,this);
+        sachAdapter = new SachAdapter(sachList,this,sachListful);
         sachAdapter.notifyDataSetChanged();
         StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -117,7 +121,27 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home,menu);
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.home, menu);
+
+        MenuItem searchItem=menu.findItem(R.id.app_bar_search);
+        SearchView searchView=(SearchView) searchItem.getActionView();
+
+        searchView.setQueryHint("Search....");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                sachAdapter.getFilter().filter(s);
+                return false;
+            }
+        });
+        return true;
     }
 }

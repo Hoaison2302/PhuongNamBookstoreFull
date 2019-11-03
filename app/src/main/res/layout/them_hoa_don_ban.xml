@@ -71,6 +71,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:id="@+id/edtgiai"
+                        android:inputType="number"
                         android:layout_height="wrap_content"
                         android:hint="Giá" />
 
@@ -81,6 +82,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:id="@+id/edtsoluongi"
+                            android:inputType="number"
                             android:layout_height="wrap_content"
                             android:hint="Số Lượng" />
                         <com.google.android.material.textfield.TextInputLayout
